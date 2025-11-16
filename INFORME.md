@@ -20,7 +20,7 @@ Noviembre 2025
 
 ---
 
-# 1. Casos Reales Investigados
+# 1. Casos Reales Investigados y Conclusion
 
 *Decisiones Tomadas Por IA:*
 
@@ -39,14 +39,90 @@ Noviembre 2025
 + Medicina asistida por IA: Sistema de diagnóstico ayudan a médicos a detectar enfermedades, pero la decisión final la toma el especialista humano.
 
 + Detroit:Became Human(Videojuego): Humanos y androides negocian su convivencia, el resultado depende de las elecciones conjuntas.
-# 2. Conclusiones
+
+Conclusion
+-
 
 *Los casos investigados muestran que la IA sola aporta precisión pero sin empatía, inspirando enemigos y pruebas rígidas que los humanos aunque cometen errores generan aprendizaje y creatividad reflejados en personajes y recursos que la colaboración humano y IA logra el equilibrio con aliados defectuosos, recursos compartidos y un medidor de Equilibrio . El juego transmite que el verdadero progreso surge al unir tecnología y humanidad.*
 
-# 3. Storyboard Narrativo y Visual
+# 2. Storyboard Narrativo y Visual
 
-# 4. Diagrama De Clases UML
+*1er Mundo:*
+-
+El protagonista llega a una ciudad tecnológica, donde todo funciona con exactitud: semáforos perfectos, robots obedientes, edificios futuristas. Sin embargo, las personas parecen huecas, vacías, caminan sin emoción. Todo está controlado por algoritmos rígidos que eliminan cada error, pero también la libertad.
 
-# 5. Recursos a Utilizar En El Desarrollo Del Videojuego
+Personajes
+-
 
-# 6. Plan De Actividades
++ Enemigos: Guardianes del Algoritmo(las máquinas)
+
++ Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
+
++ Recursos: Chips(pueden dar experiencia o algún poder)
+
+Preguntas reflexivas iniciales de cada mundo
+-
+
+“¿La eficiencia sin emociones puede llamarse vida?”
+
+“¿Puede existir progreso sin alegría?”
+
+---
+
+*2do Mundo:* 
+-
+
+El protagonista llega a un pueblo humilde y sencillo, donde las personas son más expresivas, ríen, discuten, cometen errores, pero aprenden de cada error. Los recursos son limitados y las soluciones toman tiempo pero se respira creatividad y vida.
+
+Personajes
+-
+
++ Enemigos: Sombras(entes que representan el error humano)
+
++ Aliados: Anciano (hombre experimentado, que te pude dar consejos)
+
++ Recursos: Libro de conocimiento (algún poder o un consejo)
+
+Preguntas reflexivas iniciales de cada mundo
+-
+
+“¿La verdadera humanidad se encuentra en los aciertos o en los tropiezos?”
+
+---
+
+3er Mundo
+-
+
+Finalmente, el protagonista llega a un mundo donde humanos y máquinas conviven en armonía. La ciudad combina humanidad con tecnología, parques verdes con drones que riegan, hospitales con médicos apoyados por la IA, aulas donde estudiantes estudian juntos a sistemas inteligentes. Aquí la vida parece equilibrada, aunque todavía hay problemas algunos desconfían de las máquinas y otros temen que los humanos sean un obstáculo.
+
+Personajes
+-
+
++ Enemigos: Desconfianza entre humanos y IA
+
++ Aliados: Humanos con herramientas tecnológicas
+
++ Recursos: medicinas avanzadas(otorgar salud/vida)
+
+Preguntas reflexivas iniciales de cada mundo
+-
+
+“¿El futuro ideal es colaboración o dependencia?”
+
+Interacciones
+-
+
+El jugador debe decidir si confía o no Dialogar puede hacer cambiar de bando
+
+Propuesta del mensaje final crítico
+-
+
+“La perfección de las máquinas sin alma nos quitan nuestra libertad. La fragilidad humana sin apoyo nos expone a errores. Pero juntos, humanos y máquinas, podemos construir un futuro más justo y equilibrado, siempre que el juicio crítico guíe nuestras decisiones.”
+
+---
+
+# 3. Diagrama De Clases UML
+
+# 4. Recursos a Utilizar En El Desarrollo Del Videojuego
+
+# 5. Plan De Actividades
