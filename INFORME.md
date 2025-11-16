@@ -125,4 +125,10 @@ Propuesta del mensaje final crítico
 
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
 
+Personaje
+-
+
+<img width="576" height="256" alt="walk" src="https://github.com/user-attachments/assets/9ee4034a-1b16-4802-bf18-17f8083ef84e" />
+
+
 # 5. Plan De Actividades
