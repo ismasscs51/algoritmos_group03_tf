@@ -132,3 +132,19 @@ Personaje
 
 
 # 5. Plan De Actividades
+
+| Nº | Actividad                                   |Responsable| S3 | S4 | S5 | S6 | S7 | Observaciones |
+|----|---------------------------------------------|-----------|----|----|----|----|----|---------------|
+| 1  | Diseño del diagrama de clase                |           |    |    |    |    | Cumplido |
+| 2  | Prototipo de la solución                    |           |    |    |    |    | En proceso |
+| 3  | Definir interfaz del videojuego             |           |    |    |    |    | Problemas — Definir resolución del formulario |
+| 4  | Definir estructura de datos                 |           |    |    |    |    | Problemas |
+| 5  | Implementar herencia                        |           |    |    |    |    | Cumplido |
+| 6  | Clase controladora                          |           |    |    |    |    | Cumplido — No reconoce a la clase hijo |
+| 7  | Elaborar el menú                            |           |    |    |    |    | Problemas |
+| 8  | Clases complementarias                      |           |    |    |    |    | En proceso |
+| 9  | Gestión archivos                            |           |    |    |    |    | Problemas — Problemas de integración, no actualiza |
+| 10 | Integrar clases complementarias al proyecto |           |    |    |    |    | En proceso — No reconoce el método… |
+| 11 | Pruebas integrales                          |           |    |    |    |    | Problemas — Se tienen 3 errores no identificados |
+| 12 | Redactar el informe                         |           |    |    |    |    | En proceso |
+| 13 | Preparar la exposición                      |           |    |    |    |    | En proceso |
