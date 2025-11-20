@@ -128,10 +128,10 @@ classDiagram
 class Jugador {
 - x
 - y
-- dx
-- dy
-+borrar()
-+moveer()
+- dx, dy
+- indiceX, indiceY
+- ancho, alto
++mover()
 +dibujar()
 +recogerRecurso(Recurso r)
 }
@@ -142,7 +142,7 @@ class Enemigo {
 - dx
 - dy
 +borrar()
-+moveer()
++mover()
 +dibujar()
 +atacar(Jugador j)
 }
