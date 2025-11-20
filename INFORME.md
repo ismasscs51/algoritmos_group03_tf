@@ -126,10 +126,10 @@ Propuesta del mensaje final crítico
 classDiagram
 
 class Jugador {
--int x;
--int y;
--int dx;
--int dy;
+- x
+- y
+- dx
+- dy
 +borrar()
 +moveer()
 +dibujar()
@@ -137,10 +137,10 @@ class Jugador {
 }
 
 class Enemigo {
--int x;
--int y;
--int dx;
--int dy;
+- x
+- y
+- dx
+- dy
 +borrar()
 +moveer()
 +dibujar()
@@ -148,10 +148,10 @@ class Enemigo {
 }
 
 class Aliado {
--int x;
--int y;
--int dx;
--int dy;
+- x
+- y
+- dx
+- dy
 +curar(Jugador j)
 }
 
