@@ -173,6 +173,11 @@ Personaje
 
 <img width="576" height="256" alt="walk" src="https://github.com/user-attachments/assets/9ee4034a-1b16-4802-bf18-17f8083ef84e" />
 
+Recursos
+-
+
+<img width="24" height="21" alt="corazon2" src="https://github.com/user-attachments/assets/c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" />
+
 
 # 5. Plan De Actividades
 
