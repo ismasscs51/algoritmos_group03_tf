@@ -59,7 +59,9 @@ Personajes
 
 + Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
 
-+ Recursos: Chips(pueden dar experiencia o algún poder)
++ Recursos: Microchips(Te aconsejan o te dan un mensaje motivador)
+<img width="2096" height="2096" alt="Mobile - #COMPASS - Gameplay Elements - Data Chips (1)" src="https://github.com/user-attachments/assets/e96a1fe0-de1e-4591-bbe9-2baf3ee52a9f" />
+
 + Background:
 <img width="1536" height="1024" alt="Cyberpung Background 2" src="https://github.com/user-attachments/assets/05837f40-2540-4b43-9b7e-ab0b2c7feeda" />
 
