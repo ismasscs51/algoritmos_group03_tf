@@ -86,6 +86,8 @@ Personajes
 
 
 + Aliados: Anciano (hombre experimentado, que te pude dar consejos)
++ Background:
+<img width="480" height="180" alt="Demo" src="https://github.com/user-attachments/assets/6d060900-6212-4692-b1d7-5f75644070d4" />
 
 + Recursos: Libro de conocimiento (algún poder o un consejo)
 
