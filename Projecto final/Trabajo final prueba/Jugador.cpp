@@ -7,8 +7,8 @@ Jugador::Jugador(int x, int y) {
 	dy = 0;
 	ultimaTecla = Direcciones::Abajo;
 	direccion = Direcciones::Ninguna;
-	ancho = 64;
-	alto = 64;
+	ancho = 50;
+	alto = 50;
 	indiceX = 0;
 	indiceY = 0;
 }
