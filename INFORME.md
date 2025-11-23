@@ -58,6 +58,8 @@ Personajes
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/4d700a57-b060-4505-ba26-ffeaaf33485b" />
 
 + Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
+<img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/3b41c9dd-f3c4-4e20-a721-eba47177eaaa" />
+
 
 + Recursos: Microchips(Te aconsejan o te dan un mensaje motivador)
 <img width="2096" height="2096" alt="Mobile - #COMPASS - Gameplay Elements - Data Chips (1)" src="https://github.com/user-attachments/assets/e96a1fe0-de1e-4591-bbe9-2baf3ee52a9f" />
