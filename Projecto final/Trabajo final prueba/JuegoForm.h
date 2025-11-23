@@ -1,7 +1,7 @@
 #pragma once
 #include "Jugador.h"
 #include "Recurso.h"
-
+#include "Enemigo.h"
 namespace Trabajofinalprueba {
 
 	using namespace System;
@@ -20,6 +20,8 @@ namespace Trabajofinalprueba {
 		Recurso* oCorazon ;
 		Bitmap^ bmpCorazon;
 
+		Enemigo* oEnemigo;
+		Bitmap^ bmpEnemigo;
 
 		Jugador* oJugador    ;
 		   Bitmap^ bmpJugador;
@@ -28,11 +30,13 @@ namespace Trabajofinalprueba {
 		{
 			InitializeComponent();
 			oCorazon = new Recurso(200, 150, 24, 21);
-			bmpCorazon = gcnew Bitmap("corazon2.png");
-
+			bmpCorazon = gcnew Bitmap("img/corazon2.png");
 
 			oJugador = new Jugador{ 50,50 };
-			bmpJugador = gcnew Bitmap("walk.png");
+			bmpJugador = gcnew Bitmap("img/Jugador.png");
+
+			oEnemigo = new Enemigo(400, 300, 64, 64,4);
+			bmpEnemigo = gcnew Bitmap("img/enemigo.png");
 		}
 
 	protected:
@@ -93,6 +97,10 @@ namespace Trabajofinalprueba {
 		buffer->Graphics->Clear(Color::Black);
 
 		oJugador->mover(buffer, bmpJugador);
+
+		oEnemigo->perseguir(oJugador);
+		oEnemigo->mover(buffer, bmpEnemigo);
+
 		oCorazon->dibujarRecurso(buffer, bmpCorazon);
 
 		buffer->Render(g);

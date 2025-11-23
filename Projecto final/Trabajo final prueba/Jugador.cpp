@@ -8,11 +8,13 @@ Jugador::Jugador(int x, int y) {
 	ultimaTecla = Direcciones::Abajo;
 	direccion = Direcciones::Ninguna;
 
-	ancho = 64;
-	alto = 64;
+	ancho = 128;
+	alto = 128;
 
 	indiceX = 0;
 	indiceY = 0;
+
+	velocidad = 10;
 }
 
 
@@ -33,7 +35,7 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
 			indiceX++;
 		else
 			indiceX = 0;
-		dy = -10;
+		dy = -velocidad;
 		dx = 0;
 		ultimaTecla = Arriba;
 		break;
@@ -44,7 +46,7 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
 			indiceX++;
 		else
 			indiceX = 0;
-		dy = 10;
+		dy = velocidad;
 		dx = 0;
 		ultimaTecla = Abajo;
 		break;
@@ -56,7 +58,7 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
 		else
 			indiceX = 0;
 		dy = 0;
-		dx = -10;
+		dx = -velocidad;
 		ultimaTecla = Izquierda;
 		break;
 
@@ -67,7 +69,7 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
 		else
 			indiceX = 0;
 		dy = 0;
-		dx = 10;
+		dx = velocidad;
 		ultimaTecla = Derecha;
 		break;
 	case Direcciones::Ninguna:
