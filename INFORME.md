@@ -60,6 +60,9 @@ Personajes
 + Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
 
 + Recursos: Chips(pueden dar experiencia o algún poder)
++ Background:
+<img width="2304" height="1296" alt="11" src="https://github.com/user-attachments/assets/75b7a4b9-a9e8-4aed-8b99-2d87d7d51a2c" />
+
 
 Preguntas reflexivas iniciales de cada mundo
 -
