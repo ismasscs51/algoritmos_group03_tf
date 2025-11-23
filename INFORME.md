@@ -183,7 +183,7 @@ Recursos
 
 | Nº | Actividad                                   |Responsable| S3 | S4 | S5 | S6 | S7 | Observaciones |
 |----|---------------------------------------------|-----------|----|----|----|----|----|---------------|
-| 1  | Diseño del diagrama de clase                |           |    |    |    |    |    |               |
+| 1  | Diseño del diagrama de clase                | rrt          |    |    |    |    |    |               |
 | 2  | Prototipo de la solución                    |           |    |    |    |    |    |               |
 | 3  | Definir interfaz del videojuego             |           |    |    |    |    |    |               |
 | 4  | Definir estructura de datos                 |           |    |    |    |    |    |               |
