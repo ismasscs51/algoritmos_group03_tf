@@ -55,6 +55,7 @@ Personajes
 -
 
 + Enemigos: Guardianes del Algoritmo(las máquinas)
+<img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/4d700a57-b060-4505-ba26-ffeaaf33485b" />
 
 + Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
 
