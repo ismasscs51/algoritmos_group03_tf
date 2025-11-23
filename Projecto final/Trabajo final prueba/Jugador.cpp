@@ -7,13 +7,10 @@ Jugador::Jugador(int x, int y) {
 	dy = 0;
 	ultimaTecla = Direcciones::Abajo;
 	direccion = Direcciones::Ninguna;
-<<<<<<< HEAD
-	ancho = 50;
-	alto = 50;
-=======
-	ancho = 32;
+
+	ancho = 64;
 	alto = 64;
->>>>>>> fd0fb3196d51e63e219f62a3f0cd8a94b863fc10
+
 	indiceX = 0;
 	indiceY = 0;
 }
