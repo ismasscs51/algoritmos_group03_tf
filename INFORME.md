@@ -61,8 +61,7 @@ Personajes
 
 + Recursos: Chips(pueden dar experiencia o algún poder)
 + Background:
-<img width="2304" height="1296" alt="11" src="https://github.com/user-attachments/assets/75b7a4b9-a9e8-4aed-8b99-2d87d7d51a2c" />
-
+<img width="1536" height="1024" alt="Cyberpung Background 2" src="https://github.com/user-attachments/assets/05837f40-2540-4b43-9b7e-ab0b2c7feeda" />
 
 Preguntas reflexivas iniciales de cada mundo
 -
