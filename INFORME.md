@@ -161,7 +161,7 @@ class Enemigo {
 
 class Recurso {
 + Recurso(int x, int y, int ancho, int alto)
-+ void dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
++ dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
 }
 
 class JuegoForm {
