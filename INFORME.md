@@ -143,8 +143,8 @@ class Jugador {
 - ancho, alto
 - velocidad
 - direcciones ultimaTecla
-+ dx
-+ dy
+- dx
+- dy
 + Jugador(int x, int y)
 + getX()
 + getY()
@@ -155,33 +155,30 @@ class Jugador {
 }
 
 class Enemigo {
-- x
-- y
-- dx
-- dy
-+borrar()
-+mover()
-+dibujar()
-+atacar(Jugador j)
-}
-
-class Aliado {
-- x
-- y
-- dx
-- dy
-+curar(Jugador j)
++ Recurso(int x, int y, int ancho, int alto)
++ dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
 }
 
 class Recurso {
--string tipo;
--int cantidad;
-+usar(Jugador j)
++ Recurso(int x, int y, int ancho, int alto)
++ void dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
 }
 
-Jugador o-- "1..*" Recurso
-Jugador o-- "1..*" Aliado
-Jugador -- "1..*" Enemigo
+class JuegoForm {
+- Jugador* jugador
+- Enemigo* enemigo
+- List~Recurso*~ recursos
+- Timer timer
++ paint()
++ actualizar()
++ keyDown()
+}
+
+Jugador <|-- Enemigo
+Jugador <|-- Recurso
+JuegoForm --> Jugador
+JuegoForm --> Enemigo
+JuegoForm --> Recurso
 
 ```
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
