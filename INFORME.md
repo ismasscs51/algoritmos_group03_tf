@@ -198,7 +198,7 @@ Recursos
 
 | Nº | Actividad                                   |Responsable| S3 | S4 | S5 | S6 | S7 | Observaciones |
 |----|---------------------------------------------|-----------|----|----|----|----|----|---------------|
-| 1  | Diseño del diagrama de clase                | Ismael Cortez     |    |    |    |    |    |               |
+| 1  | Diseño del diagrama de clase                | Mathias Belon     |    |    |    |    |    |               |
 | 2  | Prototipo de la solución                    | Mathias Belon     |    |    |    |    |    |               |
 | 3  | Definir interfaz del videojuego             | Sebastian Calderon|    |    |    |    |    |               |
 | 4  | Definir estructura de datos                 | Ismael Cortez     |    |    |    |    |    |               |
