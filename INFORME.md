@@ -139,12 +139,19 @@ classDiagram
 class Jugador {
 - x
 - y
-- dx, dy
 - indiceX, indiceY
 - ancho, alto
-+mover()
-+dibujar()
-+recogerRecurso(Recurso r)
+- velocidad
+- direcciones ultimaTecla
++ dx
++ dy
++ Jugador(int x, int y)
++ getX()
++ getY()
++ getCentroX()
++ getCentroY()
++ mover(BufferedGraphics buffer, Bitmap bmp)
++ dibujar(BufferedGraphics buffer, Bitmap bmp)
 }
 
 class Enemigo {
