@@ -19,6 +19,31 @@ Jugador::Jugador(int x, int y) {
 	atacando = false;
 	indiceAtaque = 0;
 	maxFramesAtaque = 6;
+
+	yaGolpeoEnEsteAtaque = false;
+}
+
+Rectangle Jugador::getHitboxAtaque()
+{
+	int w = 40;
+	int h = 40;
+
+	switch (ultimaTecla)
+	{
+	case Direcciones::Derecha:
+		return Rectangle(x + ancho, y + alto / 4, w, h);
+
+	case Direcciones::Izquierda:
+		return Rectangle(x - w, y + alto / 4, w, h);
+
+	case Direcciones::Arriba:
+		return Rectangle(x + ancho / 4, y - h, w, h);
+
+	case Direcciones::Abajo:
+		return Rectangle(x + ancho / 4, y + alto, w, h);
+	}
+
+	return Rectangle(0, 0, 0, 0);
 }
 
 
@@ -55,7 +80,7 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmpCaminar, Bitmap^ bmpAta
 			indiceAtaque = 0;
 		}
 
-		return; // mientras ataca, no caminamos
+		return; // mientras ataca no caminamos
 	}
 
 	switch (direccion)

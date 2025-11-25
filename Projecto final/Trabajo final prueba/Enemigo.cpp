@@ -14,6 +14,9 @@ Enemigo::Enemigo(int x, int y, int ancho, int alto,int velocidad)
 
     dx = 0;
     dy = 0;
+
+    vida = 3;
+    vivo = true;
 }
 
 //Cambie esto con IA el abs Sirve para convertir un número negativo en positivo.

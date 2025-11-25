@@ -29,9 +29,16 @@ public:
 	int getCentroX() { return x + ancho / 2; }
 	int getCentroY() { return y + alto / 2; }//IA
 
+	bool yaGolpeoEnEsteAtaque;
 
 	Direcciones direccion;
+
 	Jugador(int x, int y);
+
+	Rectangle getHitboxAtaque();
+
+	int getAncho() { return ancho; }
+	int getAlto() { return alto; }
 
 	void dibujar(BufferedGraphics^ buffer, Bitmap^ bmp);
 	void mover(BufferedGraphics^ buffer, Bitmap^ bmpCaminar, Bitmap^ bmpAtacar);

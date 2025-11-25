@@ -17,6 +17,12 @@ namespace Trabajofinalprueba {
 	public ref class JuegoForm : public System::Windows::Forms::Form
 	{
 	private:
+
+		bool mostrarDaño = false;
+		int dañoX = 0;
+		int dañoY = 0;
+		int tiempoDaño = 0;
+
 		Recurso* oCorazon;
 		Bitmap^ bmpCorazon;
 
@@ -99,15 +105,79 @@ namespace Trabajofinalprueba {
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 		buffer->Graphics->Clear(Color::Black);
 
+		if (mostrarDaño)
+		{
+			dañoY -= 2; // sube el texto
+
+			buffer->Graphics->DrawString(
+				"-1",
+				gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold),
+				Brushes::Red,
+				dañoX,
+				dañoY
+			);
+
+			tiempoDaño--;
+
+			if (tiempoDaño <= 0)
+				mostrarDaño = false;
+		}
+
 		oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
 
-		oEnemigo->perseguir(oJugador);
-		oEnemigo->mover(buffer, bmpEnemigo, bmpEnemigo);
+		if (oEnemigo->vivo)
+		{
+			// 2. Solo si el jugador está atacando
+			if (oJugador->atacando)
+			{
+				// 3. El golpe solo existe en los frames 2 y 3
+				if (oJugador->indiceAtaque == 2 || oJugador->indiceAtaque == 3)
+				{
+					// 4. Obtener hitbox del ataque
+					Rectangle hitAtaque = oJugador->getHitboxAtaque();
+
+					// 5. Obtener hitbox del enemigo
+					Rectangle hitEnemigo(
+						oEnemigo->getX(),
+						oEnemigo->getY(),
+						oEnemigo->getAncho(),
+						oEnemigo->getAlto()
+					);
+
+					// 6. Detectar colisión
+					if (hitAtaque.IntersectsWith(hitEnemigo))
+					{
+						// 7. Evitar golpes múltiples por ataque
+						if (!oJugador->yaGolpeoEnEsteAtaque)
+						{
+							oEnemigo->vida--;                    // Quitar vida al enemigo
+							oJugador->yaGolpeoEnEsteAtaque = true; // Marcar golpe
+
+							mostrarDaño = true;
+							dañoX = oEnemigo->getX();
+							dañoY = oEnemigo->getY();
+							tiempoDaño = 15; // dura 15 frames (0.25 segundos)
+
+							// 8. Si vida llega a 0  enemigo muere
+							if (oEnemigo->vida <= 0)
+							{
+								oEnemigo->vivo = false;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if (oEnemigo->vivo) {
+			oEnemigo->perseguir(oJugador);
+			oEnemigo->mover(buffer, bmpEnemigo, bmpEnemigo);
+		}
 
 		oCorazon->dibujarRecurso(buffer, bmpCorazon);
 
 		buffer->Render(g);
-
+		
 		delete buffer;
 		delete espacio;
 		delete g;
@@ -132,6 +202,7 @@ namespace Trabajofinalprueba {
 		if (e->KeyCode == Keys::A) {
 			oJugador->atacando = true;
 			oJugador->indiceAtaque = 0;
+			oJugador->yaGolpeoEnEsteAtaque = false;
 		}
 
 	}
