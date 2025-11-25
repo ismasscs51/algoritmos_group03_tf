@@ -17,14 +17,16 @@ namespace Trabajofinalprueba {
 	public ref class JuegoForm : public System::Windows::Forms::Form
 	{
 	private:
-		Recurso* oCorazon ;
+		Recurso* oCorazon;
 		Bitmap^ bmpCorazon;
 
 		Enemigo* oEnemigo;
 		Bitmap^ bmpEnemigo;
 
-		Jugador* oJugador    ;
+		Jugador* oJugador;
 		   Bitmap^ bmpJugador;
+		   Bitmap^ bmpJugadorAtacar;
+
 	public:
 		JuegoForm(void)
 		{
@@ -34,6 +36,7 @@ namespace Trabajofinalprueba {
 
 			oJugador = new Jugador{ 50,50 };
 			bmpJugador = gcnew Bitmap("img/Jugador.png");
+			bmpJugadorAtacar = gcnew Bitmap("img/Jugador_Atacar.png");
 
 			oEnemigo = new Enemigo(400, 300, 64, 64,4);
 			bmpEnemigo = gcnew Bitmap("img/enemigo.png");
@@ -96,10 +99,10 @@ namespace Trabajofinalprueba {
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 		buffer->Graphics->Clear(Color::Black);
 
-		oJugador->mover(buffer, bmpJugador);
+		oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
 
 		oEnemigo->perseguir(oJugador);
-		oEnemigo->mover(buffer, bmpEnemigo);
+		oEnemigo->mover(buffer, bmpEnemigo, bmpEnemigo);
 
 		oCorazon->dibujarRecurso(buffer, bmpCorazon);
 
@@ -124,6 +127,11 @@ namespace Trabajofinalprueba {
 		case Keys::Down:
 			oJugador->direccion = Direcciones::Abajo;
 			break;
+		}
+
+		if (e->KeyCode == Keys::A) {
+			oJugador->atacando = true;
+			oJugador->indiceAtaque = 0;
 		}
 
 	}

@@ -15,6 +15,10 @@ Jugador::Jugador(int x, int y) {
 	indiceY = 0;
 
 	velocidad = 10;
+
+	atacando = false;
+	indiceAtaque = 0;
+	maxFramesAtaque = 6;
 }
 
 
@@ -26,7 +30,34 @@ void Jugador::dibujar(BufferedGraphics^ buffer, Bitmap^ bmp) {
 	y += dy;
 
 }
-void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
+void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmpCaminar, Bitmap^ bmpAtacar) {
+
+	if (atacando) {
+
+		switch (ultimaTecla)
+		{
+		case Direcciones::Arriba:    indiceY = 0; break;
+		case Direcciones::Izquierda: indiceY = 1; break;
+		case Direcciones::Abajo:     indiceY = 2; break;
+		case Direcciones::Derecha:   indiceY = 3; break;
+		}
+
+		indiceX = indiceAtaque;
+
+		Rectangle porcion = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);
+		Rectangle destino = Rectangle(x, y, ancho, alto);
+		buffer->Graphics->DrawImage(bmpAtacar, destino, porcion, GraphicsUnit::Pixel);
+
+		indiceAtaque++;
+
+		if (indiceAtaque >= maxFramesAtaque) {
+			atacando = false;
+			indiceAtaque = 0;
+		}
+
+		return; // mientras ataca, no caminamos
+	}
+
 	switch (direccion)
 	{
 	case Direcciones::Arriba:
@@ -97,6 +128,6 @@ void Jugador::mover(BufferedGraphics^ buffer, Bitmap^ bmp) {
 		break;
 	}
 
-	dibujar(buffer, bmp);
+	dibujar(buffer, bmpCaminar);
 
 }

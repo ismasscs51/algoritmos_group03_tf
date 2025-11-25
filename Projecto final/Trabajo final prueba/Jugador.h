@@ -15,6 +15,11 @@ protected:
 	Direcciones ultimaTecla;
 
 public:
+
+	bool atacando;       
+	int indiceAtaque;    
+	int maxFramesAtaque; 
+
 	int dx;
 	int dy;
 
@@ -29,6 +34,7 @@ public:
 	Jugador(int x, int y);
 
 	void dibujar(BufferedGraphics^ buffer, Bitmap^ bmp);
-	void mover(BufferedGraphics^ buffer, Bitmap^ bmp);
+	void mover(BufferedGraphics^ buffer, Bitmap^ bmpCaminar, Bitmap^ bmpAtacar);
+
 };
 
