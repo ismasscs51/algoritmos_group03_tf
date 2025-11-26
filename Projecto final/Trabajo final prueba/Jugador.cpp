@@ -21,6 +21,11 @@ Jugador::Jugador(int x, int y) {
 	maxFramesAtaque = 6;
 
 	yaGolpeoEnEsteAtaque = false;
+
+	vivo = true;
+	vida = 5;
+	invulnerable = false;
+	tiempoInvulnerable = 0;
 }
 
 Rectangle Jugador::getHitboxAtaque()

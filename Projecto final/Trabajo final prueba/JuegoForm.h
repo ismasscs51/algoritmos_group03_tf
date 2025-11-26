@@ -107,7 +107,7 @@ namespace Trabajofinalprueba {
 
 		if (mostrarDaño)
 		{
-			dañoY -= 2; // sube el texto
+			dañoY -= 2;
 
 			buffer->Graphics->DrawString(
 				"-1",
@@ -123,20 +123,23 @@ namespace Trabajofinalprueba {
 				mostrarDaño = false;
 		}
 
-		oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
+		if (oJugador->vivo)
+		{
+			oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
+		}
 
 		if (oEnemigo->vivo)
 		{
-			// 2. Solo si el jugador está atacando
+			
 			if (oJugador->atacando)
 			{
-				// 3. El golpe solo existe en los frames 2 y 3
+				
 				if (oJugador->indiceAtaque == 2 || oJugador->indiceAtaque == 3)
 				{
-					// 4. Obtener hitbox del ataque
+					
 					Rectangle hitAtaque = oJugador->getHitboxAtaque();
 
-					// 5. Obtener hitbox del enemigo
+					
 					Rectangle hitEnemigo(
 						oEnemigo->getX(),
 						oEnemigo->getY(),
@@ -144,21 +147,21 @@ namespace Trabajofinalprueba {
 						oEnemigo->getAlto()
 					);
 
-					// 6. Detectar colisión
+					
 					if (hitAtaque.IntersectsWith(hitEnemigo))
 					{
-						// 7. Evitar golpes múltiples por ataque
+						
 						if (!oJugador->yaGolpeoEnEsteAtaque)
 						{
-							oEnemigo->vida--;                    // Quitar vida al enemigo
-							oJugador->yaGolpeoEnEsteAtaque = true; // Marcar golpe
+							oEnemigo->vida--;
+							oJugador->yaGolpeoEnEsteAtaque = true;
 
 							mostrarDaño = true;
 							dañoX = oEnemigo->getX();
 							dañoY = oEnemigo->getY();
-							tiempoDaño = 15; // dura 15 frames (0.25 segundos)
+							tiempoDaño = 15;
 
-							// 8. Si vida llega a 0  enemigo muere
+							
 							if (oEnemigo->vida <= 0)
 							{
 								oEnemigo->vivo = false;
@@ -167,6 +170,47 @@ namespace Trabajofinalprueba {
 					}
 				}
 			}
+		}
+
+		if (oEnemigo->vivo && oJugador->vivo)
+		{
+			if (!oJugador->invulnerable)
+			{
+				Rectangle hitJugador = oJugador->getHitboxJugador();
+				Rectangle hitEnemigo(
+					oEnemigo->getX(),
+					oEnemigo->getY(),
+					oEnemigo->getAncho(),
+					oEnemigo->getAlto()
+				);
+
+				if (hitJugador.IntersectsWith(hitEnemigo))
+				{
+					oJugador->vida--;
+
+					if (oJugador->vida <= 0)
+					{
+						oJugador->vivo = false;
+					}
+					oJugador->invulnerable = true;
+					oJugador->tiempoInvulnerable = 30;
+
+					// MOSTRAR "-1" SOBRE EL JUGADOR
+					mostrarDaño = true;
+					dañoX = oJugador->getX() + (oJugador->getAncho() / 2) - 5;
+					dañoY = oJugador->getY() - 10;  
+					tiempoDaño = 15;
+
+				}
+			}
+		}
+
+		if (oJugador->invulnerable)
+		{
+			oJugador->tiempoInvulnerable--;
+
+			if (oJugador->tiempoInvulnerable <= 0)
+				oJugador->invulnerable = false;
 		}
 
 		if (oEnemigo->vivo) {

@@ -12,9 +12,15 @@ protected:
 	int alto;
 	int indiceX, indiceY;
 	int velocidad;
+
 	Direcciones ultimaTecla;
 
 public:
+
+	int vivo;
+	int vida;
+	bool invulnerable;
+	int tiempoInvulnerable;
 
 	bool atacando;       
 	int indiceAtaque;    
@@ -39,6 +45,17 @@ public:
 
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
+
+	Rectangle getHitboxJugador()
+	{
+		int hitW = ancho * 0.40;   // ancho del 40% del sprite
+		int hitH = alto * 0.60;    // alto del 60% del sprite
+
+		int offsetX = (ancho - hitW) / 2;  // centrar hitbox en el sprite
+		int offsetY = alto * 0.35;         // mover hitbox abajo (cerca de los pies)
+
+		return Rectangle(x + offsetX, y + offsetY, hitW, hitH);
+	}
 
 	void dibujar(BufferedGraphics^ buffer, Bitmap^ bmp);
 	void mover(BufferedGraphics^ buffer, Bitmap^ bmpCaminar, Bitmap^ bmpAtacar);

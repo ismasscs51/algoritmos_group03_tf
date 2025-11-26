@@ -38,7 +38,7 @@ void Enemigo::perseguir(Jugador* objetivo)
         direccion = Direcciones::Arriba;
     }
 
-    // Para no temblar cuando está encima
+    
     if (abs(dx_obj) < 5 && abs(dy_obj) < 5) {
         direccion = Direcciones::Ninguna;
     }
