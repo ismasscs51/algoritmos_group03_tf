@@ -111,9 +111,12 @@ Finalmente, el protagonista llega a un mundo donde humanos y máquinas conviven 
 Personajes
 -
 
-+ Enemigos: Desconfianza entre humanos y IA
++ Enemigos: Desconfianza entre humanos y IA (Representados con una asquerosa rata negra)
+  <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/15bea9ab-8d06-431d-bc16-1d0fa076a2c0" />
 
-+ Aliados: Humanos con herramientas tecnológicas
++ Aliados: Humanos que confian en las maquinas
+<img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/a2877799-14be-452b-a190-5656d028d73b" />
+
 
 + Recursos: medicinas avanzadas(otorgar salud/vida)
 
