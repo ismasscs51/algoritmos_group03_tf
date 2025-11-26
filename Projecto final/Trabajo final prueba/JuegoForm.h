@@ -27,6 +27,8 @@ namespace Trabajofinalprueba {
 		Bitmap^ bmpCorazon;
 
 		Enemigo* oEnemigo;
+		Enemigo* oEnemigo2;
+		Enemigo* oEnemigo3;
 		Bitmap^ bmpEnemigo;
 
 		Jugador* oJugador;
@@ -44,8 +46,12 @@ namespace Trabajofinalprueba {
 			bmpJugador = gcnew Bitmap("img/Jugador.png");
 			bmpJugadorAtacar = gcnew Bitmap("img/Jugador_Atacar.png");
 
-			oEnemigo = new Enemigo(400, 300, 64, 64,4);
+			oEnemigo = new Enemigo(400, 300, 64, 64,3);
+			oEnemigo2 = new Enemigo(200, 200, 64, 64, 3);
+			oEnemigo3 = new Enemigo(600, 200, 64, 64, 3);
 			bmpEnemigo = gcnew Bitmap("img/enemigo.png");
+
+			
 		}
 
 	protected:
@@ -123,9 +129,44 @@ namespace Trabajofinalprueba {
 				mostrarDaño = false;
 		}
 
+		
+
 		if (oJugador->vivo)
 		{
 			oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
+		}
+
+		Enemigo* listaEnemigos[] = { oEnemigo, oEnemigo2, oEnemigo3 };
+
+		for (int i = 0; i < 3; i++)
+		{
+			Enemigo* e = listaEnemigos[i];
+
+			if (e->vivo && oJugador->atacando)
+			{
+				if (oJugador->indiceAtaque == 2 || oJugador->indiceAtaque == 3)
+				{
+					Rectangle hitAtaque = oJugador->getHitboxAtaque();
+					Rectangle hitEnemigo(e->getX(), e->getY(), e->getAncho(), e->getAlto());
+
+					if (hitAtaque.IntersectsWith(hitEnemigo))
+					{
+						if (!oJugador->yaGolpeoEnEsteAtaque)
+						{
+							e->vida--;
+							oJugador->yaGolpeoEnEsteAtaque = true;
+
+							mostrarDaño = true;
+							dañoX = e->getX();
+							dañoY = e->getY();
+							tiempoDaño = 15;
+
+							if (e->vida <= 0)
+								e->vivo = false;
+						}
+					}
+				}
+			}
 		}
 
 		if (oEnemigo->vivo)
@@ -172,35 +213,29 @@ namespace Trabajofinalprueba {
 			}
 		}
 
-		if (oEnemigo->vivo && oJugador->vivo)
+		for (int i = 0; i < 3; i++)
 		{
-			if (!oJugador->invulnerable)
+			Enemigo* e = listaEnemigos[i];
+
+			if (e->vivo && oJugador->vivo && !oJugador->invulnerable)
 			{
 				Rectangle hitJugador = oJugador->getHitboxJugador();
-				Rectangle hitEnemigo(
-					oEnemigo->getX(),
-					oEnemigo->getY(),
-					oEnemigo->getAncho(),
-					oEnemigo->getAlto()
-				);
+				Rectangle hitEnemigo(e->getX(), e->getY(), e->getAncho(), e->getAlto());
 
 				if (hitJugador.IntersectsWith(hitEnemigo))
 				{
 					oJugador->vida--;
 
 					if (oJugador->vida <= 0)
-					{
 						oJugador->vivo = false;
-					}
+
 					oJugador->invulnerable = true;
 					oJugador->tiempoInvulnerable = 30;
 
-					// MOSTRAR "-1" SOBRE EL JUGADOR
 					mostrarDaño = true;
-					dañoX = oJugador->getX() + (oJugador->getAncho() / 2) - 5;
-					dañoY = oJugador->getY() - 10;  
+					dañoX = oJugador->getX();
+					dañoY = oJugador->getY();
 					tiempoDaño = 15;
-
 				}
 			}
 		}
@@ -213,9 +248,15 @@ namespace Trabajofinalprueba {
 				oJugador->invulnerable = false;
 		}
 
-		if (oEnemigo->vivo) {
-			oEnemigo->perseguir(oJugador);
-			oEnemigo->mover(buffer, bmpEnemigo, bmpEnemigo);
+		for (int i = 0; i < 3; i++)
+		{
+			Enemigo* e = listaEnemigos[i];
+
+			if (e->vivo)
+			{
+				e->perseguir(oJugador);
+				e->mover(buffer, bmpEnemigo, bmpEnemigo);
+			}
 		}
 
 		oCorazon->dibujarRecurso(buffer, bmpCorazon);
