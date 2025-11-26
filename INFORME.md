@@ -95,6 +95,8 @@ Personajes
 <img width="480" height="180" alt="Demo" src="https://github.com/user-attachments/assets/6d060900-6212-4692-b1d7-5f75644070d4" />
 
 + Recursos: Libro de conocimiento (algún poder o un consejo)
+<img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/e3651553-e4e0-4967-9cca-babaf064aaf5" />
+
 
 Preguntas reflexivas iniciales de cada mundo
 -
