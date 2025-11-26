@@ -87,8 +87,10 @@ Personajes
 + Enemigos: Sombras(entes que representan el error humano)
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/2a920c82-6ff3-4441-a52e-06dd61881ae1" />
 
-
 + Aliados: Anciano (hombre experimentado, que te pude dar consejos)
+<img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/a3794683-cf07-4bd6-aac2-9fb68317e7ba" />
+
+
 + Background:
 <img width="480" height="180" alt="Demo" src="https://github.com/user-attachments/assets/6d060900-6212-4692-b1d7-5f75644070d4" />
 
