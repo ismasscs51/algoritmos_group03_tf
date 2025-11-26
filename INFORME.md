@@ -65,7 +65,7 @@ Personajes
 <img width="2096" height="2096" alt="Mobile - #COMPASS - Gameplay Elements - Data Chips (1)" src="https://github.com/user-attachments/assets/e96a1fe0-de1e-4591-bbe9-2baf3ee52a9f" />
 
 + Background:
-<img width="1536" height="1024" alt="Cyberpung Background 2" src="https://github.com/user-attachments/assets/05837f40-2540-4b43-9b7e-ab0b2c7feeda" />
+<img width="1600" height="600" alt="PC _ Computer - Undertale - Miscellaneous - Asriel Dreemurr Battle Background" src="https://github.com/user-attachments/assets/7c1d3366-21a0-4576-b22a-7249a0e5ad9a" />
 
 Preguntas reflexivas iniciales de cada mundo
 -
@@ -92,7 +92,8 @@ Personajes
 
 
 + Background:
-<img width="480" height="180" alt="Demo" src="https://github.com/user-attachments/assets/6d060900-6212-4692-b1d7-5f75644070d4" />
+<img width="3200" height="1800" alt="Preview" src="https://github.com/user-attachments/assets/e0d7346e-33c0-499d-9e86-5fc9a58ce79b" />
+
 
 + Recursos: Libro de conocimiento (algún poder o un consejo)
 <img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/e3651553-e4e0-4967-9cca-babaf064aaf5" />
@@ -121,6 +122,7 @@ Personajes
 
 
 + Recursos: medicinas avanzadas(otorgar salud/vida)
+  <img width="24" height="21" alt="517767799-c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" src="https://github.com/user-attachments/assets/4e380bd7-5a3f-4e23-a802-8c5a4a2ee031" />
 
 Preguntas reflexivas iniciales de cada mundo
 -
