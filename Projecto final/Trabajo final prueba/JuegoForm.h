@@ -2,6 +2,8 @@
 #include "Jugador.h"
 #include "Recurso.h"
 #include "Enemigo.h"
+#include "Aliado.h"
+#include "FormConsejo.h"
 namespace Trabajofinalprueba {
 
 	using namespace System;
@@ -18,41 +20,270 @@ namespace Trabajofinalprueba {
 	{
 	private:
 
+		int nivelActual;
+		int enemigosRestantes;
+
+		int jugadorInicialX = 50;
+		int jugadorInicialY = 50;
+
+		bool mostrarAvisoNivel = false;
+		String^ textoAvisoNivel = "";
+		int tiempoAviso = 0;
+
 		bool mostrarDaño = false;
 		int dañoX = 0;
 		int dañoY = 0;
 		int tiempoDaño = 0;
 
-		Recurso* oCorazon;
-		Bitmap^ bmpCorazon;
+		bool botiquinActivo = false;
+		bool consejoMostrado;
+
+		bool mostrarCura;
+		int curaX, curaY;
+		int tiempoCura;
+
+		Recurso* botiquin;
+		Bitmap^ bmpBotiquin;
+
+		Aliado* aliado1;
+		Aliado* aliado2;
+		Aliado* aliado3;
+
+		Bitmap^ bmpAliado1;
+		Bitmap^ bmpAliado2;
+		Bitmap^ bmpAliado3;
 
 		Enemigo* oEnemigo;
 		Enemigo* oEnemigo2;
 		Enemigo* oEnemigo3;
 		Bitmap^ bmpEnemigo;
 
+		Enemigo* oSombra1;
+		Enemigo* oSombra2;
+		Enemigo* oSombra3;
+		Bitmap^ bmpSombra;
+
+		Enemigo* oRata1;
+		Enemigo* oRata2;
+		Enemigo* oRata3;
+		Bitmap^ bmpRata;
+
 		Jugador* oJugador;
 		   Bitmap^ bmpJugador;
+	private: System::Windows::Forms::ProgressBar^ barraVida;
+	private: System::Windows::Forms::Label^ label1;
+
 		   Bitmap^ bmpJugadorAtacar;
 
 	public:
 		JuegoForm(void)
 		{
 			InitializeComponent();
-			oCorazon = new Recurso(200, 150, 24, 21);
-			bmpCorazon = gcnew Bitmap("img/corazon2.png");
+			botiquin = new Recurso(0, 0, 24, 21);
+			bmpBotiquin = gcnew Bitmap("img/corazon2.png");
+
+			botiquinActivo = false;
+
+			bmpAliado1 = gcnew Bitmap("img/Aliado1.png");
+			bmpAliado2 = gcnew Bitmap("img/Aliado2.png");
+			bmpAliado3 = gcnew Bitmap("img/Aliado3.png");
+
+			aliado1 = new Aliado(300, 300, 64, 64);
+			aliado2 = new Aliado(300, 300, 64, 64);
+			aliado3 = new Aliado(300, 300, 64, 64);
+
+			consejoMostrado = false;
 
 			oJugador = new Jugador{ 50,50 };
 			bmpJugador = gcnew Bitmap("img/Jugador.png");
 			bmpJugadorAtacar = gcnew Bitmap("img/Jugador_Atacar.png");
 
-			oEnemigo = new Enemigo(400, 300, 64, 64,3);
-			oEnemigo2 = new Enemigo(200, 200, 64, 64, 3);
-			oEnemigo3 = new Enemigo(600, 200, 64, 64, 3);
-			bmpEnemigo = gcnew Bitmap("img/enemigo.png");
+			oEnemigo = new Enemigo(400, 300, 64, 64,1);
+			oEnemigo2 = new Enemigo(200, 300, 64, 64, 1);
+			oEnemigo3 = new Enemigo(600, 200, 64, 64, 1);
+			bmpEnemigo = gcnew Bitmap("img/robot.png");
 
+			oSombra1 = new Enemigo(400, 300, 64, 64, 2);
+			oSombra2 = new Enemigo(200, 300, 64, 64, 2);
+			oSombra3 = new Enemigo(600, 300, 64, 64, 2);
+			bmpSombra = gcnew Bitmap("img/sombra.png");
+
+
+			oRata1 = new Enemigo(300, 200, 64, 64, 3);
+			oRata2 = new Enemigo(500, 300, 64, 64, 2);
+			oRata3 = new Enemigo(150, 250, 64, 64, 2);
+			bmpRata = gcnew Bitmap("img/Rata.png");
+			
+
+			nivelActual = 1;
+			enemigosRestantes = 2;
+			mostrarMensajeNivel("Nivel 1");
+
+			aliado1->setPos(350, 150);
+			aliado1->activar();
+			consejoMostrado = false;
+
+			oEnemigo->vivo = false;
+			oEnemigo2->vivo = false;
+			oEnemigo3->vivo = false;
+
+			barraVida->Maximum = 5;
+			barraVida->Value = oJugador->vida;
 			
 		}
+
+
+
+
+		void mostrarMensajeNivel(String^ texto)
+		{
+			mostrarAvisoNivel = true;
+			textoAvisoNivel = texto;
+			tiempoAviso = 50;
+		}
+
+		void mostrarConsejoNivel(int nivel)
+		{
+			consejoMostrado = true;
+
+			// Desactivar enemigos mientras vemos el consejo
+			oEnemigo->vivo = false;
+			oEnemigo2->vivo = false;
+			oEnemigo3->vivo = false;
+
+			oSombra1->vivo = false;
+			oSombra2->vivo = false;
+			oSombra3->vivo = false;
+
+			oRata1->vivo = false;
+			oRata2->vivo = false;
+			oRata3->vivo = false;
+
+			aliado1->desactivar();
+			aliado2->desactivar();
+			aliado3->desactivar();
+
+			
+			timer1->Enabled = false;
+
+			FormConsejo^ f = gcnew FormConsejo();
+
+			if (nivel == 1)
+			{
+				f->setMensaje(
+					"Nivel 1 - Robots\n\n"
+					"Vida: 3\nDaño: 1\nVelocidad: Lenta\n\n"
+					"Los robots se acercan lentamente.\n"
+					"Golpéalos manteniendo distancia."
+				);
+			}
+			else if (nivel == 2)
+			{
+				f->setMensaje(
+					"Nivel 2 - Sombras\n\n"
+					"Vida: 3\nDaño: 1\nVelocidad: Media\n\n"
+					"Evita quedarte en una esquina."
+				);
+			}
+			else if (nivel == 3)
+			{
+				f->setMensaje(
+					"Nivel 3 - Ratas\n\n"
+					"Vida: 2\nDaño: 1\nVelocidad: Alta\n\n"
+					"Muévete constantemente para evitar rodeos."
+				);
+			}
+
+			f->ShowDialog();
+
+			timer1->Enabled = true;
+
+			// Reactivar enemigos cuando cerramos el consejo
+			if (nivel == 1)
+			{
+				oEnemigo->resetVida();
+				oEnemigo->vivo = true;
+				oEnemigo2->vivo = true;
+			}
+
+			if (nivel == 2)
+			{
+				oSombra1->resetVida();
+				oSombra2->resetVida();
+				oSombra3->resetVida();
+
+				oSombra1->vivo = true;
+				oSombra2->vivo = true;
+				oSombra3->vivo = true;
+			}
+
+			if (nivel == 3)
+			{
+				oRata1->resetVida();
+				oRata2->resetVida();
+				oRata3->resetVida();
+
+				oRata1->vivo = true;
+				oRata2->vivo = true;
+				oRata3->vivo = true;
+			}
+		}
+
+		void verificarCambioDeNivel()
+		{
+			if (enemigosRestantes <= 0)
+			{
+				nivelActual++;
+
+				if (nivelActual == 1)
+				{
+					mostrarMensajeNivel("Nivel 1");
+					enemigosRestantes = 1;
+
+					aliado1->setPos(350, 150);
+					aliado1->activar();
+					consejoMostrado = false;
+
+					oEnemigo->vivo = false;
+					oEnemigo2->vivo = false;
+					oEnemigo3->vivo = false;
+				}
+
+				else if (nivelActual == 2)
+				{
+					mostrarMensajeNivel("Nivel 2");
+					enemigosRestantes = 3;
+
+					aliado2->setPos(350, 150);
+					aliado2->activar();
+					consejoMostrado = false;
+
+					oSombra1->vivo = false;
+					oSombra2->vivo = false;
+					oSombra3->vivo = false;
+				}
+
+				else if (nivelActual == 3)
+				{
+					mostrarMensajeNivel("Nivel 3");
+					enemigosRestantes = 3;
+
+					aliado3->setPos(350, 150);
+					aliado3->activar();
+					consejoMostrado = false;
+
+					oRata1->vivo = false;
+					oRata2->vivo = false;
+					oRata3->vivo = false;
+				}
+
+				else if (nivelActual > 3)
+				{
+					mostrarMensajeNivel("¡GANASTE!");
+				}
+			}
+		}
+
 
 	protected:
 		/// <summary>
@@ -84,6 +315,8 @@ namespace Trabajofinalprueba {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->barraVida = (gcnew System::Windows::Forms::ProgressBar());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -91,17 +324,39 @@ namespace Trabajofinalprueba {
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &JuegoForm::timer1_Tick);
 			// 
+			// barraVida
+			// 
+			this->barraVida->Location = System::Drawing::Point(12, 28);
+			this->barraVida->Maximum = 5;
+			this->barraVida->Name = L"barraVida";
+			this->barraVida->Size = System::Drawing::Size(161, 31);
+			this->barraVida->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
+			this->barraVida->TabIndex = 0;
+			this->barraVida->Value = 5;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(9, 9);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(38, 16);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"VIDA";
+			// 
 			// JuegoForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1146, 591);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->barraVida);
 			this->Name = L"JuegoForm";
 			this->Text = L"JuegoForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &JuegoForm::FormCerrar);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &JuegoForm::precionarTecla);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &JuegoForm::soltarTecla);
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -129,6 +384,24 @@ namespace Trabajofinalprueba {
 				mostrarDaño = false;
 		}
 
+		if (mostrarCura)
+		{
+			curaY -= 2;
+
+			buffer->Graphics->DrawString(
+				"+1",
+				gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold),
+				Brushes::LimeGreen,
+				curaX,
+				curaY
+			);
+
+			tiempoCura--;
+
+			if (tiempoCura <= 0)
+				mostrarCura = false;
+		}
+
 		
 
 		if (oJugador->vivo)
@@ -136,11 +409,100 @@ namespace Trabajofinalprueba {
 			oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
 		}
 
-		Enemigo* listaEnemigos[] = { oEnemigo, oEnemigo2, oEnemigo3 };
+		Rectangle hitJugador = Rectangle(oJugador->getX(), oJugador->getY(), oJugador->getAncho(), oJugador->getAlto());
+
+		if (nivelActual == 1 && aliado1->estaActivo())
+		{
+			aliado1->dibujar(buffer->Graphics, bmpAliado1);
+		}
+		else if (nivelActual == 2 && aliado2->estaActivo())
+		{
+			aliado2->dibujar(buffer->Graphics, bmpAliado2);
+		}
+		else if (nivelActual == 3 && aliado3->estaActivo())
+		{
+			aliado3->dibujar(buffer->Graphics, bmpAliado3);
+		}
+
+		if (!consejoMostrado)
+		{
+			if (nivelActual == 1 && aliado1->estaActivo() &&
+				hitJugador.IntersectsWith(aliado1->getHitbox()))
+			{
+				mostrarConsejoNivel(1);
+			}
+
+			if (nivelActual == 2 && aliado2->estaActivo() &&
+				hitJugador.IntersectsWith(aliado2->getHitbox()))
+			{
+				mostrarConsejoNivel(2);
+			}
+
+			if (nivelActual == 3 && aliado3->estaActivo() &&
+				hitJugador.IntersectsWith(aliado3->getHitbox()))
+			{
+				mostrarConsejoNivel(3);
+			}
+		}
+
+		Enemigo* enemigosActivos[3];
+
+		if (nivelActual == 1)
+		{
+			enemigosActivos[0] = oEnemigo;
+			enemigosActivos[1] = oEnemigo2;
+			enemigosActivos[2] = oEnemigo3;
+		}
+		else if (nivelActual == 2)
+		{
+			
+			enemigosActivos[0] = oSombra1;
+			enemigosActivos[1] = oSombra2;
+			enemigosActivos[2] = oSombra3;
+		}
+		else if (nivelActual == 3)
+		{
+			
+			enemigosActivos[0] = oRata1;
+			enemigosActivos[1] = oRata2;
+			enemigosActivos[2] = oRata3;
+		}
+		else
+		{
+			
+			enemigosActivos[0] = nullptr;
+			enemigosActivos[1] = nullptr;
+			enemigosActivos[2] = nullptr;
+		}
 
 		for (int i = 0; i < 3; i++)
 		{
-			Enemigo* e = listaEnemigos[i];
+			if (enemigosActivos[i] == nullptr) continue;
+
+			Enemigo* e = enemigosActivos[i];
+
+			if (e->vivo)
+			{
+				e->moverHaciaJugador(oJugador);
+
+				Bitmap^ sprite;
+
+				if (nivelActual == 1)
+					sprite = bmpEnemigo;
+				else if (nivelActual == 2)
+					sprite = bmpSombra;
+				else
+					sprite = bmpRata;
+
+				e->mover(buffer, sprite, sprite);
+			}
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			Enemigo* e = enemigosActivos[i];
+
+			if (e == nullptr) continue;
 
 			if (e->vivo && oJugador->atacando)
 			{
@@ -162,11 +524,39 @@ namespace Trabajofinalprueba {
 							tiempoDaño = 15;
 
 							if (e->vida <= 0)
+							{
 								e->vivo = false;
+								enemigosRestantes--;
+
+								Random rnd;
+								int chance = rnd.Next(0, 100);
+
+								if (chance < 50)
+								{
+									botiquinActivo = true;
+
+									botiquin->setX(e->getX());
+									botiquin->setY(e->getY());
+								}
+
+								verificarCambioDeNivel();
+							}
 						}
 					}
 				}
 			}
+		}
+
+		if (mostrarAvisoNivel)
+		{
+			System::Drawing::Font^ f = gcnew System::Drawing::Font("Arial", 32, FontStyle::Bold);
+			buffer->Graphics->DrawString(textoAvisoNivel, f, Brushes::Yellow,
+				this->Width / 2 - 100, 80);
+
+			tiempoAviso--;
+
+			if (tiempoAviso <= 0)
+				mostrarAvisoNivel = false;
 		}
 
 		if (oEnemigo->vivo)
@@ -215,7 +605,8 @@ namespace Trabajofinalprueba {
 
 		for (int i = 0; i < 3; i++)
 		{
-			Enemigo* e = listaEnemigos[i];
+			Enemigo* e = enemigosActivos[i];
+			if (e == nullptr) continue;
 
 			if (e->vivo && oJugador->vivo && !oJugador->invulnerable)
 			{
@@ -225,9 +616,13 @@ namespace Trabajofinalprueba {
 				if (hitJugador.IntersectsWith(hitEnemigo))
 				{
 					oJugador->vida--;
+					barraVida->Value = oJugador->vida;
 
 					if (oJugador->vida <= 0)
+					{
 						oJugador->vivo = false;
+						mostrarMensajeNivel("PERDISTE");
+					}
 
 					oJugador->invulnerable = true;
 					oJugador->tiempoInvulnerable = 30;
@@ -248,18 +643,45 @@ namespace Trabajofinalprueba {
 				oJugador->invulnerable = false;
 		}
 
-		for (int i = 0; i < 3; i++)
-		{
-			Enemigo* e = listaEnemigos[i];
+		
 
-			if (e->vivo)
-			{
-				e->perseguir(oJugador);
-				e->mover(buffer, bmpEnemigo, bmpEnemigo);
-			}
+		if (botiquinActivo)
+		{
+			botiquin->dibujar(buffer, bmpBotiquin);
 		}
 
-		oCorazon->dibujarRecurso(buffer, bmpCorazon);
+		if (botiquinActivo)
+		{
+			Rectangle rectBotiquin(
+				botiquin->getX(),
+				botiquin->getY(),
+				botiquin->getAncho(),
+				botiquin->getAlto()
+			);
+
+			Rectangle rectJugador(
+				oJugador->getX(),
+				oJugador->getY(),
+				oJugador->getAncho(),
+				oJugador->getAlto()
+			);
+
+			if (rectJugador.IntersectsWith(rectBotiquin))
+			{
+				botiquinActivo = false;
+
+				oJugador->vida++;
+				if (oJugador->vida > barraVida->Maximum)
+					oJugador->vida = barraVida->Maximum;
+
+				barraVida->Value = oJugador->vida;
+
+				mostrarCura = true;
+				curaX = oJugador->getX();
+				curaY = oJugador->getY();
+				tiempoCura = 15;
+			}
+		}
 
 		buffer->Render(g);
 		

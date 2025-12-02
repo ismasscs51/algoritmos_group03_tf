@@ -120,14 +120,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Aliado.cpp" />
     <ClCompile Include="Enemigo.cpp" />
+    <ClCompile Include="FormConsejo.cpp" />
     <ClCompile Include="JuegoForm.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Recurso.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Aliado.h" />
     <ClInclude Include="Enemigo.h" />
+    <ClInclude Include="FormConsejo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="JuegoForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -138,6 +144,9 @@
     <ClInclude Include="Recurso.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormConsejo.resx">
+      <DependentUpon>FormConsejo.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JuegoForm.resx">
       <DependentUpon>JuegoForm.h</DependentUpon>
     </EmbeddedResource>

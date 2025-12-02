@@ -21,25 +21,29 @@ Enemigo::Enemigo(int x, int y, int ancho, int alto,int velocidad)
 
 //Cambie esto con IA el abs Sirve para convertir un número negativo en positivo.
 //Lo uso para saber qué tan lejos está el enemigo del jugador
-void Enemigo::perseguir(Jugador* objetivo)
+void Enemigo::moverHaciaJugador(Jugador* objetivo)
 {
-    int dx_obj = objetivo->getCentroX() - getCentroX();
-    int dy_obj = objetivo->getCentroY() - getCentroY();
-    if (dx_obj > 0) {
-        direccion = Direcciones::Derecha;
-    }
-    else if (dx_obj < 0) {
-        direccion = Direcciones::Izquierda;
-    }
-    if (dy_obj > 0) {
-        direccion = Direcciones::Abajo;
-    }
-    else if (dy_obj < 0) {
-        direccion = Direcciones::Arriba;
-    }
+    float dx = objetivo->getCentroX() - getCentroX();
+    float dy = objetivo->getCentroY() - getCentroY();
 
-    
-    if (abs(dx_obj) < 5 && abs(dy_obj) < 5) {
-        direccion = Direcciones::Ninguna;
+    float distancia = sqrt(dx * dx + dy * dy);
+
+    if (distancia < 1) return; // evita division por cero
+
+    float nx = dx / distancia; // normalizar vector
+    float ny = dy / distancia;
+
+    // mover enemigo de forma suave hacia el jugador
+    x += nx * velocidad;
+    y += ny * velocidad;
+
+    // actualizar direccion (para animaciones)
+    if (fabs(dx) > fabs(dy))
+    {
+        direccion = (dx > 0) ? Direcciones::Derecha : Direcciones::Izquierda;
+    }
+    else
+    {
+        direccion = (dy > 0) ? Direcciones::Abajo : Direcciones::Arriba;
     }
 }

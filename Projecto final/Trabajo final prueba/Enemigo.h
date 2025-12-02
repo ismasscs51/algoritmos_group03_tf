@@ -9,7 +9,16 @@ public:
 	int vida;
 	int vivo;
 
-	void perseguir(Jugador* objetivo);
+	void moverHaciaJugador(Jugador* objetivo);
+	void resetVida()
+	{
+		vida = 3;    
+	}
+
+	void setVelocidad(int v)
+	{
+		velocidad = v;
+	}
 	
 };
 

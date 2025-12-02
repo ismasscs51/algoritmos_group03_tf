@@ -13,6 +13,7 @@ protected:
 	int indiceX, indiceY;
 	int velocidad;
 
+
 	Direcciones ultimaTecla;
 
 public:
@@ -31,6 +32,9 @@ public:
 
 	int getX() { return x; }
 	int getY() { return y; }
+
+	void setX(int nx) { x = nx; }
+	void setY(int ny) { y = ny; }
 
 	int getCentroX() { return x + ancho / 2; }
 	int getCentroY() { return y + alto / 2; }//IA
