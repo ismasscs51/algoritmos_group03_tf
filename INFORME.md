@@ -208,15 +208,15 @@ Recursos
 | Nº | Actividad                                   |Responsable| S3 | S4 | S5 | S6 | S7 | Observaciones |
 |----|---------------------------------------------|-----------|----|----|----|----|----|---------------|
 | 1  | Diseño del diagrama de clase                | Mathias Belon     |    |    |    |    |    |               |
-| 2  | Prototipo de la solución                    | Mathias Belon     |    |    |    |    |    |               |
-| 3  | Definir interfaz del videojuego             | Sebastian Calderon|    |    |    |    |    |               |
-| 4  | Definir estructura de datos                 | Ismael Cortez     |    |    |    |    |    |               |
-| 5  | Implementar herencia                        | Sebastian Calderon|    |    |    |    |    |               |
-| 6  | Clase controladora                          | Sebastian Calderon|    |    |    |    |    |               |
-| 7  | Elaborar el menú                            | Sebastian Calderon|    |    |    |    |    |               |
-| 8  | Clases complementarias                      | Mathias Belon     |    |    |    |    |    |               |
-| 9  | Gestión archivos                            | Ismael Cortez     |    |    |    |    |    |               | 
-| 10 | Integrar clases complementarias al proyecto | Ismael Cortez     |    |    |    |    |    |               | 
-| 11 | Pruebas integrales                          | Mathias Belon     |    |    |    |    |    |               |
-| 12 | Redactar el informe                         | Sebastian Pavel   |    |    |    |    |    |               |
-| 13 | Preparar la exposición                      | Ismael Cortez     |    |    |    |    |    |               |
+| 2  | Prototipo de la solución                    | Mathias Belon     |    |    |    |    |   x |               |
+| 3  | Definir interfaz del videojuego             | Sebastian Calderon|    |    |    |    |  x  |               |
+| 4  | Definir estructura de datos                 | Ismael Cortez     |    |    |    |    |  x  |               |
+| 5  | Implementar herencia                        | Sebastian Calderon|    |    |    |   x |    |               |
+| 6  | Clase controladora                          | Sebastian Calderon|    |    |    |  x  |    |               |
+| 7  | Elaborar el menú                            | Sebastian Calderon|    |   x |    |    |    |               |
+| 8  | Clases complementarias                      | Mathias Belon     |    |    |    |  x  |    |               |
+| 9  | Gestión archivos                            | Ismael Cortez     |    |    |    |  x  |    |               | 
+| 10 | Integrar clases complementarias al proyecto | Ismael Cortez     |    |    |    |    |  x  |               | 
+| 11 | Pruebas integrales                          | Mathias Belon     |    |    |    |    |  x  |               |
+| 12 | Redactar el informe                         | Sebastian Pavel   | x   |    |    |    |    |               |
+| 13 | Preparar la exposición                      | Ismael Cortez     |    |    |    |    |   x |               |
