@@ -1,6 +1,6 @@
 ![UPC-Logo-Actual](https://github.com/user-attachments/assets/2c3d5eb6-34cb-42df-8277-7914b799d95c)
 
-*INFORME DEL TRABAJO FINAL*
+# *INFORME DEL TRABAJO FINAL*
 
 + Informe de Trabajo Final – Curso de Algoritmos
 
