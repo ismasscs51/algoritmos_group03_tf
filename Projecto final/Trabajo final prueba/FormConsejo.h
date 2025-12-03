@@ -67,18 +67,21 @@ namespace Trabajofinalprueba {
 			// 
 			this->lblTexto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTexto->Location = System::Drawing::Point(29, 9);
+			this->lblTexto->Location = System::Drawing::Point(22, 7);
+			this->lblTexto->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblTexto->Name = L"lblTexto";
-			this->lblTexto->Size = System::Drawing::Size(224, 177);
+			this->lblTexto->Size = System::Drawing::Size(168, 144);
 			this->lblTexto->TabIndex = 0;
 			this->lblTexto->Text = L"label1";
 			this->lblTexto->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->lblTexto->Click += gcnew System::EventHandler(this, &FormConsejo::lblTexto_Click);
 			// 
 			// btnContinuar
 			// 
-			this->btnContinuar->Location = System::Drawing::Point(101, 204);
+			this->btnContinuar->Location = System::Drawing::Point(76, 166);
+			this->btnContinuar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnContinuar->Name = L"btnContinuar";
-			this->btnContinuar->Size = System::Drawing::Size(75, 37);
+			this->btnContinuar->Size = System::Drawing::Size(56, 30);
 			this->btnContinuar->TabIndex = 1;
 			this->btnContinuar->Text = L"Continuar";
 			this->btnContinuar->UseVisualStyleBackColor = true;
@@ -86,11 +89,12 @@ namespace Trabajofinalprueba {
 			// 
 			// FormConsejo
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(282, 253);
+			this->ClientSize = System::Drawing::Size(212, 206);
 			this->Controls->Add(this->btnContinuar);
 			this->Controls->Add(this->lblTexto);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"FormConsejo";
 			this->Text = L"FormConsejo";
 			this->ResumeLayout(false);
@@ -101,6 +105,8 @@ namespace Trabajofinalprueba {
 
 		this->Close();
 
+	}
+	private: System::Void lblTexto_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
