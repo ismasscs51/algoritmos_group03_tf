@@ -344,7 +344,6 @@ namespace Trabajofinalprueba {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(JuegoForm::typeid));
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->barraVida = (gcnew System::Windows::Forms::ProgressBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -383,7 +382,6 @@ namespace Trabajofinalprueba {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(1147, 591);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->barraVida);
