@@ -125,8 +125,7 @@ Personajes
 
 
 +Background: 
-<img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/a5ce3980-74a1-4c62-bd28-31f816b46f74" />
-
+![background](https://github.com/user-attachments/assets/07376695-96da-4027-96ee-951396fb9ff0)
 
 Preguntas reflexivas iniciales de cada mundo
 -
