@@ -356,30 +356,34 @@ namespace Trabajofinalprueba {
 			// 
 			// barraVida
 			// 
-			this->barraVida->Location = System::Drawing::Point(12, 28);
+			this->barraVida->Location = System::Drawing::Point(9, 23);
+			this->barraVida->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->barraVida->Maximum = 5;
 			this->barraVida->Name = L"barraVida";
-			this->barraVida->Size = System::Drawing::Size(161, 31);
+			this->barraVida->Size = System::Drawing::Size(121, 25);
 			this->barraVida->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->barraVida->TabIndex = 0;
 			this->barraVida->Value = 5;
+			this->barraVida->Click += gcnew System::EventHandler(this, &JuegoForm::barraVida_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 9);
+			this->label1->Location = System::Drawing::Point(7, 7);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(38, 16);
+			this->label1->Size = System::Drawing::Size(32, 13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"VIDA";
 			// 
 			// JuegoForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1146, 591);
+			this->ClientSize = System::Drawing::Size(860, 480);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->barraVida);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"JuegoForm";
 			this->Text = L"JuegoForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &JuegoForm::FormCerrar);
@@ -810,5 +814,7 @@ namespace Trabajofinalprueba {
 	private: System::Void FormCerrar(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 		Application::Exit();
 	}
+private: System::Void barraVida_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
