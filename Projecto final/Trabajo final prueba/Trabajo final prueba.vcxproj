@@ -127,6 +127,7 @@
     <ClCompile Include="JuegoForm.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Recurso.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="Recurso.h" />
   </ItemGroup>
   <ItemGroup>

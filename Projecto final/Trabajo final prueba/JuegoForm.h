@@ -419,13 +419,13 @@ namespace Trabajofinalprueba {
 			this->barraConfianza->ForeColor = System::Drawing::Color::GreenYellow;
 			this->barraConfianza->Location = System::Drawing::Point(151, 29);
 			this->barraConfianza->Margin = System::Windows::Forms::Padding(2);
-			this->barraConfianza->Maximum = 3;
+			this->barraConfianza->Maximum = 4;
 			this->barraConfianza->Name = L"barraConfianza";
 			this->barraConfianza->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->barraConfianza->Size = System::Drawing::Size(99, 25);
+			this->barraConfianza->Size = System::Drawing::Size(121, 25);
 			this->barraConfianza->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->barraConfianza->TabIndex = 3;
-			this->barraConfianza->Value = 3;
+			this->barraConfianza->Value = 4;
 			this->barraConfianza->Click += gcnew System::EventHandler(this, &JuegoForm::progressBar1_Click);
 			// 
 			// JuegoForm
