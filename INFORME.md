@@ -1,6 +1,6 @@
-<img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/1f723d34-2609-4bdb-8d19-62be94fa8c6a" /># *INFORME DEL TRABAJO FINAL*
+![UPC-Logo-Actual](https://github.com/user-attachments/assets/2c3d5eb6-34cb-42df-8277-7914b799d95c)
 
-<img width="343" height="147" alt="download" src="https://github.com/user-attachments/assets/474b0cbf-3d05-4cbe-a460-545da948173a" />
+# *INFORME DEL TRABAJO FINAL*
 
 + Informe de Trabajo Final – Curso de Algoritmos
 
@@ -121,6 +121,9 @@ Personajes
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/a2877799-14be-452b-a190-5656d028d73b" />
 
 +Background: 
+<img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/a5ce3980-74a1-4c62-bd28-31f816b46f74" />
+
+
 
 + Recursos: medicinas avanzadas(otorgar salud/vida)
   <img width="24" height="21" alt="517767799-c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" src="https://github.com/user-attachments/assets/4e380bd7-5a3f-4e23-a802-8c5a4a2ee031" />
