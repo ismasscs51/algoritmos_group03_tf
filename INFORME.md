@@ -1,6 +1,6 @@
-<img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/1f723d34-2609-4bdb-8d19-62be94fa8c6a" /># *INFORME DEL TRABAJO FINAL*
+![UPC-Logo-Actual](https://github.com/user-attachments/assets/2c3d5eb6-34cb-42df-8277-7914b799d95c)
 
-
+*INFORME DEL TRABAJO FINAL*
 
 + Informe de Trabajo Final – Curso de Algoritmos
 
