@@ -733,7 +733,7 @@ namespace Trabajofinalprueba {
 				oJugador->setVelocidad(18);
 
 				// TIEMPO: Asumiendo Timer a 50ms -> 10 seg = 200 ticks
-				tiempoVelocidad = 200;
+				tiempoVelocidad = 100;
 			}
 		}
 
@@ -772,7 +772,7 @@ namespace Trabajofinalprueba {
 				oRata2->setVelocidad(1);
 				oRata3->setVelocidad(1);
 
-				tiempoLentitud = 200; // 10 segundos
+				tiempoLentitud = 100; // 10 segundos
 			}
 		}
 
@@ -835,11 +835,11 @@ namespace Trabajofinalprueba {
 		}
 		buffer->Graphics->FillRectangle(Brushes::Gray, 151, 29, 121, 25);
 
-		// 2. Calculamos el relleno azul
+		
 		if (barraConfianza->Maximum > 0)
 		{
 			float porcentaje = (float)barraConfianza->Value / barraConfianza->Maximum;
-			int anchoRelleno = (int)(porcentaje * 121); // 121 es el ancho total
+			int anchoRelleno = (int)(porcentaje * 121); 
 
 			
 			if (anchoRelleno < 0) anchoRelleno = 0;
