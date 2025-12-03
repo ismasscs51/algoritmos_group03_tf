@@ -835,20 +835,20 @@ namespace Trabajofinalprueba {
 		}
 		buffer->Graphics->FillRectangle(Brushes::Gray, 151, 29, 121, 25);
 
-		// 2. Calcular relleno Azul
+		// 2. Calculamos el relleno azul
 		if (barraConfianza->Maximum > 0)
 		{
 			float porcentaje = (float)barraConfianza->Value / barraConfianza->Maximum;
 			int anchoRelleno = (int)(porcentaje * 121); // 121 es el ancho total
 
-			// Asegurar que si tenemos valor, se pinte algo
+			
 			if (anchoRelleno < 0) anchoRelleno = 0;
 
-			// 3. Dibujar el relleno AZUL
+			// Dibujamos el relleno azul
 			buffer->Graphics->FillRectangle(Brushes::Blue, 151, 29, anchoRelleno, 25);
 		}
 
-		// 4. Dibujar un borde Blanco para que resalte
+		//  Dibujamos un borde blanco para que resalte
 		buffer->Graphics->DrawRectangle(Pens::White, 151, 29, 121, 25);
 
 		buffer->Render(g);
