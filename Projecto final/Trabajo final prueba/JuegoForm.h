@@ -208,6 +208,10 @@ namespace Trabajofinalprueba {
 					"Los robots se acercan lentamente.\n"
 					"Golpéalos manteniendo distancia."
 				);
+
+				Bitmap^ imgRobot = gcnew Bitmap("img/robotconsejo.png");
+				f->setImagenEnemigo(imgRobot);
+
 			}
 			else if (nivel == 2)
 			{
@@ -216,6 +220,9 @@ namespace Trabajofinalprueba {
 					"Vida: 3\nDaño: 1\nVelocidad: Media\n\n"
 					"Evita quedarte en una esquina."
 				);
+
+				Bitmap^ imgSombra = gcnew Bitmap("img/sombraconsejo.png");
+				f->setImagenEnemigo(imgSombra);
 			}
 			else if (nivel == 3)
 			{
@@ -224,6 +231,9 @@ namespace Trabajofinalprueba {
 					"Vida: 2\nDaño: 1\nVelocidad: Alta\n\n"
 					"Muévete constantemente para evitar rodeos."
 				);
+
+				Bitmap^ imgRata = gcnew Bitmap("img/rataconsejo.png");
+				f->setImagenEnemigo(imgRata);
 			}
 
 			f->ShowDialog();

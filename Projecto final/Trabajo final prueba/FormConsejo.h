@@ -28,6 +28,11 @@ namespace Trabajofinalprueba {
 			lblTexto->Text = texto;
 		}
 
+		void setImagenEnemigo(Bitmap^ imagen)
+		{
+			pictureEnemigo->Image = imagen;
+		}
+
 
 	protected:
 		/// <summary>
@@ -44,6 +49,7 @@ namespace Trabajofinalprueba {
 	protected:
 
 	private: System::Windows::Forms::Button^ btnContinuar;
+	private: System::Windows::Forms::PictureBox^ pictureEnemigo;
 	protected:
 
 	private:
@@ -61,16 +67,18 @@ namespace Trabajofinalprueba {
 		{
 			this->lblTexto = (gcnew System::Windows::Forms::Label());
 			this->btnContinuar = (gcnew System::Windows::Forms::Button());
+			this->pictureEnemigo = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureEnemigo))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblTexto
 			// 
+			this->lblTexto->BackColor = System::Drawing::Color::Transparent;
 			this->lblTexto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblTexto->Location = System::Drawing::Point(22, 7);
-			this->lblTexto->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblTexto->Location = System::Drawing::Point(30, 9);
 			this->lblTexto->Name = L"lblTexto";
-			this->lblTexto->Size = System::Drawing::Size(168, 144);
+			this->lblTexto->Size = System::Drawing::Size(224, 177);
 			this->lblTexto->TabIndex = 0;
 			this->lblTexto->Text = L"label1";
 			this->lblTexto->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -78,31 +86,41 @@ namespace Trabajofinalprueba {
 			// 
 			// btnContinuar
 			// 
-			this->btnContinuar->Location = System::Drawing::Point(68, 153);
-			this->btnContinuar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnContinuar->Location = System::Drawing::Point(101, 215);
+			this->btnContinuar->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnContinuar->Name = L"btnContinuar";
-			this->btnContinuar->Size = System::Drawing::Size(67, 42);
-
-			this->btnContinuar->Location = System::Drawing::Point(76, 166);
-			this->btnContinuar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->btnContinuar->Name = L"btnContinuar";
-			this->btnContinuar->Size = System::Drawing::Size(56, 30);
-
+			this->btnContinuar->Size = System::Drawing::Size(79, 37);
 			this->btnContinuar->TabIndex = 1;
 			this->btnContinuar->Text = L"Continuar";
 			this->btnContinuar->UseVisualStyleBackColor = true;
 			this->btnContinuar->Click += gcnew System::EventHandler(this, &FormConsejo::btnContinuar_Click);
 			// 
+			// pictureEnemigo
+			// 
+			this->pictureEnemigo->BackColor = System::Drawing::Color::Transparent;
+			this->pictureEnemigo->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureEnemigo->Location = System::Drawing::Point(260, 85);
+			this->pictureEnemigo->Name = L"pictureEnemigo";
+			this->pictureEnemigo->Size = System::Drawing::Size(118, 129);
+			this->pictureEnemigo->TabIndex = 2;
+			this->pictureEnemigo->TabStop = false;
+			// 
 			// FormConsejo
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(212, 206);
+			this->BackColor = System::Drawing::Color::SaddleBrown;
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(409, 254);
+			this->Controls->Add(this->pictureEnemigo);
 			this->Controls->Add(this->btnContinuar);
 			this->Controls->Add(this->lblTexto);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->DoubleBuffered = true;
+			this->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"FormConsejo";
 			this->Text = L"FormConsejo";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureEnemigo))->EndInit();
 			this->ResumeLayout(false);
 
 		}
