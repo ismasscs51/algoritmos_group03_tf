@@ -46,6 +46,11 @@ public:
 	Jugador(int x, int y);
 
 	Rectangle getHitboxAtaque();
+	void setVelocidad(int v) {
+		velocidad = v;
+	}
+
+	int getVelocidad() { return velocidad; }
 
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }

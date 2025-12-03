@@ -44,6 +44,17 @@ namespace Trabajofinalprueba {
 
 		Recurso* botiquin;
 		Bitmap^ bmpBotiquin;
+		Recurso* itemVelocidad;      // El objeto en el suelo (Nivel 2)
+		Bitmap^ bmpVelocidad;        // La imagen velocidad.png
+		bool itemVelocidadEnSuelo;   // Si aparece en el mapa
+		bool poderVelocidadActivo;   // Si el jugador lo tiene activado
+		int tiempoVelocidad;         // Contador de 10 segundos
+
+		Recurso* itemLentitud;       // El objeto en el suelo (Nivel 3)
+		Bitmap^ bmpLentitud;         // La imagen lentitud.png
+		bool itemLentitudEnSuelo;    // Si aparece en el mapa
+		bool poderLentitudActivo;    // Si el jugador lo tiene activado
+		int tiempoLentitud;          // Contador de 10 segundos
 
 		Aliado* aliado1;
 		Aliado* aliado2;
@@ -83,6 +94,19 @@ namespace Trabajofinalprueba {
 			bmpBotiquin = gcnew Bitmap("img/corazon2.png");
 
 			botiquinActivo = false;
+
+
+			itemVelocidad = new Recurso(0, 0, 24, 24);
+			bmpVelocidad = gcnew Bitmap("img/velocidad.png");
+			itemVelocidadEnSuelo = false;
+			poderVelocidadActivo = false;
+			tiempoVelocidad = 0;
+
+			itemLentitud = new Recurso(0, 0, 24, 24);
+			bmpLentitud = gcnew Bitmap("img/lentitud.png");
+			itemLentitudEnSuelo = false;
+			poderLentitudActivo = false;
+			tiempoLentitud = 0;
 
 			bmpAliado1 = gcnew Bitmap("img/Aliado1.png");
 			bmpAliado2 = gcnew Bitmap("img/Aliado2.png");
@@ -286,15 +310,21 @@ namespace Trabajofinalprueba {
 
 
 	protected:
-		/// <summary>
-		/// Limpiar los recursos que se estén usando.
-		/// </summary>
 		~JuegoForm()
 		{
-			if (components)
-			{
-				delete components;
-			}
+			if (components) delete components;
+
+			// Items
+			delete itemVelocidad;
+			delete itemLentitud;
+			delete botiquin;
+
+			// Personajes
+			delete aliado1; delete aliado2; delete aliado3;
+			delete oEnemigo; delete oEnemigo2; delete oEnemigo3;
+			delete oSombra1; delete oSombra2; delete oSombra3;
+			delete oRata1; delete oRata2; delete oRata3;
+			delete oJugador;
 		}
 	private: System::Windows::Forms::Timer^ timer1;
 	protected:
@@ -426,22 +456,47 @@ namespace Trabajofinalprueba {
 
 		if (!consejoMostrado)
 		{
-			if (nivelActual == 1 && aliado1->estaActivo() &&
-				hitJugador.IntersectsWith(aliado1->getHitbox()))
+			// Aliado 1
+			if (nivelActual == 1 && aliado1->estaActivo() && hitJugador.IntersectsWith(aliado1->getHitbox()))
 			{
 				mostrarConsejoNivel(1);
 			}
 
-			if (nivelActual == 2 && aliado2->estaActivo() &&
-				hitJugador.IntersectsWith(aliado2->getHitbox()))
+			// Aliado 2 - Aparición Aleatoria de VELOCIDAD
+			if (nivelActual == 2 && aliado2->estaActivo() && hitJugador.IntersectsWith(aliado2->getHitbox()))
 			{
 				mostrarConsejoNivel(2);
+
+				if (!poderVelocidadActivo) {
+					itemVelocidadEnSuelo = true;
+
+					// --- CAMBIO: Logica Random ---
+					Random^ r = gcnew Random();
+					// Genera posicion X entre 50 y el ancho pantalla - 100
+					int azarX = r->Next(50, this->ClientSize.Width - 100);
+					int azarY = r->Next(50, this->ClientSize.Height - 100);
+
+					itemVelocidad->setX(azarX);
+					itemVelocidad->setY(azarY);
+				}
 			}
 
-			if (nivelActual == 3 && aliado3->estaActivo() &&
-				hitJugador.IntersectsWith(aliado3->getHitbox()))
+			// Aliado 3 - Aparición Aleatoria de LENTITUD
+			if (nivelActual == 3 && aliado3->estaActivo() && hitJugador.IntersectsWith(aliado3->getHitbox()))
 			{
 				mostrarConsejoNivel(3);
+
+				if (!poderLentitudActivo) {
+					itemLentitudEnSuelo = true;
+
+					// --- CAMBIO: Logica Random ---
+					Random^ r = gcnew Random();
+					int azarX = r->Next(50, this->ClientSize.Width - 100);
+					int azarY = r->Next(50, this->ClientSize.Height - 100);
+
+					itemLentitud->setX(azarX);
+					itemLentitud->setY(azarY);
+				}
 			}
 		}
 
@@ -559,49 +614,7 @@ namespace Trabajofinalprueba {
 				mostrarAvisoNivel = false;
 		}
 
-		if (oEnemigo->vivo)
-		{
-			
-			if (oJugador->atacando)
-			{
-				
-				if (oJugador->indiceAtaque == 2 || oJugador->indiceAtaque == 3)
-				{
-					
-					Rectangle hitAtaque = oJugador->getHitboxAtaque();
-
-					
-					Rectangle hitEnemigo(
-						oEnemigo->getX(),
-						oEnemigo->getY(),
-						oEnemigo->getAncho(),
-						oEnemigo->getAlto()
-					);
-
-					
-					if (hitAtaque.IntersectsWith(hitEnemigo))
-					{
-						
-						if (!oJugador->yaGolpeoEnEsteAtaque)
-						{
-							oEnemigo->vida--;
-							oJugador->yaGolpeoEnEsteAtaque = true;
-
-							mostrarDaño = true;
-							dañoX = oEnemigo->getX();
-							dañoY = oEnemigo->getY();
-							tiempoDaño = 15;
-
-							
-							if (oEnemigo->vida <= 0)
-							{
-								oEnemigo->vivo = false;
-							}
-						}
-					}
-				}
-			}
-		}
+		
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -644,7 +657,84 @@ namespace Trabajofinalprueba {
 		}
 
 		
+		// ================= LOGICA POWER UP VELOCIDAD (NIVEL 2) =================
+		if (nivelActual == 2 && itemVelocidadEnSuelo)
+		{
+			itemVelocidad->dibujar(buffer, bmpVelocidad);
 
+			Rectangle hitVelocidad(itemVelocidad->getX(), itemVelocidad->getY(), itemVelocidad->getAncho(), itemVelocidad->getAlto());
+
+			if (hitJugador.IntersectsWith(hitVelocidad))
+			{
+				itemVelocidadEnSuelo = false; // Lo agarramos
+				poderVelocidadActivo = true;
+
+				// ACTIVAMOS SUPER VELOCIDAD (Normal es 10, ahora 18)
+				oJugador->setVelocidad(18);
+
+				// TIEMPO: Asumiendo Timer a 50ms -> 10 seg = 200 ticks
+				tiempoVelocidad = 200;
+			}
+		}
+
+		// Logica del contador y restaurar velocidad
+		if (poderVelocidadActivo)
+		{
+			tiempoVelocidad--;
+
+			// Dibujar TIMER DE VELOCIDAD debajo de la barra de vida
+			buffer->Graphics->DrawString("VELOCIDAD: " + (tiempoVelocidad / 20).ToString() + "s",
+				gcnew System::Drawing::Font("Arial", 12, FontStyle::Bold),
+				Brushes::Cyan, 12, 60);
+
+			if (tiempoVelocidad <= 0)
+			{
+				poderVelocidadActivo = false;
+				oJugador->setVelocidad(10); // Volver a velocidad normal
+			}
+		}
+
+
+		// ================= LOGICA POWER UP LENTITUD (NIVEL 3) =================
+		if (nivelActual == 3 && itemLentitudEnSuelo)
+		{
+			itemLentitud->dibujar(buffer, bmpLentitud);
+
+			Rectangle hitLentitud(itemLentitud->getX(), itemLentitud->getY(), itemLentitud->getAncho(), itemLentitud->getAlto());
+
+			if (hitJugador.IntersectsWith(hitLentitud))
+			{
+				itemLentitudEnSuelo = false;
+				poderLentitudActivo = true;
+
+				// ACTIVAMOS LENTITUD A ENEMIGOS (Ratas son velocidad 3 o 4)
+				oRata1->setVelocidad(1); // Muy lentas
+				oRata2->setVelocidad(1);
+				oRata3->setVelocidad(1);
+
+				tiempoLentitud = 200; // 10 segundos
+			}
+		}
+
+		// Logica del contador y restaurar velocidad enemigos
+		if (poderLentitudActivo)
+		{
+			tiempoLentitud--;
+
+			// Dibujar TIMER DE LENTITUD debajo de la barra de vida
+			buffer->Graphics->DrawString("CONGELAR: " + (tiempoLentitud / 20).ToString() + "s",
+				gcnew System::Drawing::Font("Arial", 12, FontStyle::Bold),
+				Brushes::Blue, 12, 60);
+
+			if (tiempoLentitud <= 0)
+			{
+				poderLentitudActivo = false;
+				// Restaurar velocidad de Ratas (revisar constructor para valor original, creo era 3 o 4)
+				oRata1->setVelocidad(3);
+				oRata2->setVelocidad(3);
+				oRata3->setVelocidad(3);
+			}
+		}
 		if (botiquinActivo)
 		{
 			botiquin->dibujar(buffer, bmpBotiquin);
