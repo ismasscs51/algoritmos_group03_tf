@@ -344,6 +344,7 @@ namespace Trabajofinalprueba {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(JuegoForm::typeid));
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->barraVida = (gcnew System::Windows::Forms::ProgressBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -356,11 +357,11 @@ namespace Trabajofinalprueba {
 			// 
 			// barraVida
 			// 
-			this->barraVida->Location = System::Drawing::Point(9, 23);
-			this->barraVida->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->barraVida->Location = System::Drawing::Point(12, 36);
+			this->barraVida->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->barraVida->Maximum = 5;
 			this->barraVida->Name = L"barraVida";
-			this->barraVida->Size = System::Drawing::Size(121, 25);
+			this->barraVida->Size = System::Drawing::Size(161, 31);
 			this->barraVida->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->barraVida->TabIndex = 0;
 			this->barraVida->Value = 5;
@@ -369,21 +370,25 @@ namespace Trabajofinalprueba {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(7, 7);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(9, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(32, 13);
+			this->label1->Size = System::Drawing::Size(42, 16);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"VIDA";
 			// 
 			// JuegoForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(860, 480);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(1147, 591);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->barraVida);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->ForeColor = System::Drawing::Color::Transparent;
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"JuegoForm";
 			this->Text = L"JuegoForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &JuegoForm::FormCerrar);
@@ -398,8 +403,17 @@ namespace Trabajofinalprueba {
 		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
-		buffer->Graphics->Clear(Color::Black);
 
+		if (this->BackgroundImage != nullptr)
+		{
+			buffer->Graphics->DrawImage(
+				this->BackgroundImage,
+				0, 0,
+				this->ClientSize.Width,
+				this->ClientSize.Height
+			);
+		}
+		
 		if (mostrarDaño)
 		{
 			dañoY -= 2;
