@@ -60,6 +60,11 @@ Personajes
 + Aliados: IAS defectuosas(robots dañados, que cuestionan su programación)
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/3b41c9dd-f3c4-4e20-a721-eba47177eaaa" />
 
++NPC(Ciudadano): 
+
+![ciudadano1](https://github.com/user-attachments/assets/638f8dd4-b992-4396-8132-7ec5e67209bb)
+
+![ciudadano2](https://github.com/user-attachments/assets/9b7b84bc-0464-472b-b45f-dda71d033463)
 
 + Recursos: Microchips(Te aconsejan o te dan un mensaje motivador)
 <img width="2096" height="2096" alt="Mobile - #COMPASS - Gameplay Elements - Data Chips (1)" src="https://github.com/user-attachments/assets/e96a1fe0-de1e-4591-bbe9-2baf3ee52a9f" />
@@ -90,6 +95,11 @@ Personajes
 + Aliados: Anciano (hombre experimentado, que te pude dar consejos)
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/a3794683-cf07-4bd6-aac2-9fb68317e7ba" />
 
++NPC (Desnudo) : 
+
+![calato1](https://github.com/user-attachments/assets/3081b539-a128-47b1-b1d4-d0e04782cf78)
+
+![calato2](https://github.com/user-attachments/assets/98782dbd-9fda-40aa-8c9f-d7d055a83116)
 
 + Background:
 <img width="3200" height="1800" alt="Preview" src="https://github.com/user-attachments/assets/e0d7346e-33c0-499d-9e86-5fc9a58ce79b" />
@@ -120,13 +130,16 @@ Personajes
 + Aliados: Humanos que confian en las maquinas
 <img width="832" height="256" alt="walk" src="https://github.com/user-attachments/assets/a2877799-14be-452b-a190-5656d028d73b" />
 
++NPC(Ciudadano del campo): 
+
+![campo1](https://github.com/user-attachments/assets/97d84e9d-0fe1-40ae-a4c0-473fece6c48a)
+
+![campo2](https://github.com/user-attachments/assets/7d14b76b-1464-45d2-8569-c5cf9e9e383f)
+
+
 +Background: 
 <img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/a5ce3980-74a1-4c62-bd28-31f816b46f74" />
 
-
-
-+ Recursos: medicinas avanzadas(otorgar salud/vida)
-  <img width="24" height="21" alt="517767799-c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" src="https://github.com/user-attachments/assets/4e380bd7-5a3f-4e23-a802-8c5a4a2ee031" />
 
 Preguntas reflexivas iniciales de cada mundo
 -
