@@ -62,12 +62,8 @@ Personajes
 
 +NPC(Ciudadano): 
 
-![ciudadano1](https://github.com/user-attachments/assets/638f8dd4-b992-4396-8132-7ec5e67209bb)
+![ciudadano1](https://github.com/user-attachments/assets/638f8dd4-b992-4396-8132-7ec5e67209bb)   ![ciudadano2](https://github.com/user-attachments/assets/9b7b84bc-0464-472b-b45f-dda71d033463)
 
-![ciudadano2](https://github.com/user-attachments/assets/9b7b84bc-0464-472b-b45f-dda71d033463)
-
-+ Recursos: Microchips(Te aconsejan o te dan un mensaje motivador)
-<img width="2096" height="2096" alt="Mobile - #COMPASS - Gameplay Elements - Data Chips (1)" src="https://github.com/user-attachments/assets/e96a1fe0-de1e-4591-bbe9-2baf3ee52a9f" />
 
 + Background:
 <img width="1600" height="600" alt="PC _ Computer - Undertale - Miscellaneous - Asriel Dreemurr Battle Background" src="https://github.com/user-attachments/assets/7c1d3366-21a0-4576-b22a-7249a0e5ad9a" />
@@ -97,17 +93,10 @@ Personajes
 
 +NPC (Desnudo) : 
 
-![calato1](https://github.com/user-attachments/assets/3081b539-a128-47b1-b1d4-d0e04782cf78)
-
-![calato2](https://github.com/user-attachments/assets/98782dbd-9fda-40aa-8c9f-d7d055a83116)
+![calato1](https://github.com/user-attachments/assets/3081b539-a128-47b1-b1d4-d0e04782cf78)   ![calato2](https://github.com/user-attachments/assets/98782dbd-9fda-40aa-8c9f-d7d055a83116)
 
 + Background:
 <img width="3200" height="1800" alt="Preview" src="https://github.com/user-attachments/assets/e0d7346e-33c0-499d-9e86-5fc9a58ce79b" />
-
-
-+ Recursos: Libro de conocimiento (algún poder o un consejo)
-<img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/e3651553-e4e0-4967-9cca-babaf064aaf5" />
-
 
 Preguntas reflexivas iniciales de cada mundo
 -
@@ -132,9 +121,7 @@ Personajes
 
 +NPC(Ciudadano del campo): 
 
-![campo1](https://github.com/user-attachments/assets/97d84e9d-0fe1-40ae-a4c0-473fece6c48a)
-
-![campo2](https://github.com/user-attachments/assets/7d14b76b-1464-45d2-8569-c5cf9e9e383f)
+![campo1](https://github.com/user-attachments/assets/97d84e9d-0fe1-40ae-a4c0-473fece6c48a)   ![campo2](https://github.com/user-attachments/assets/7d14b76b-1464-45d2-8569-c5cf9e9e383f)
 
 
 +Background: 
@@ -216,8 +203,15 @@ Personaje
 
 Recursos
 -
+Le da un efecto de lentidud a los enemigos(5s) -> ![lentitud](https://github.com/user-attachments/assets/c4c15964-27c0-4666-ade5-9b44d21699ba)   
+Te da una brave descripcion de los power ups -> ![libroHD](https://github.com/user-attachments/assets/cbd3ef16-f7dc-4add-b3c5-5498fe788425)
 
-<img width="24" height="21" alt="corazon2" src="https://github.com/user-attachments/assets/c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" />
+Le da vida verde al jugador -> <img width="24" height="21" alt="corazon2" src="https://github.com/user-attachments/assets/c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" />   
+Te da un efecto de rapidez(5s) -> ![rapidez](https://github.com/user-attachments/assets/f5986115-8489-4f76-a518-eeaf88df4d65)
+
+
+
+
 
 
 # 5. Plan De Actividades
