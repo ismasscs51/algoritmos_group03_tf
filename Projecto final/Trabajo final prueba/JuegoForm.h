@@ -83,6 +83,10 @@ namespace Trabajofinalprueba {
 		   Bitmap^ bmpJugador;
 	private: System::Windows::Forms::ProgressBar^ barraVida;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::ProgressBar^ barraConfianza;
+
+
 
 		   Bitmap^ bmpJugadorAtacar;
 
@@ -150,9 +154,13 @@ namespace Trabajofinalprueba {
 			oEnemigo->vivo = false;
 			oEnemigo2->vivo = false;
 			oEnemigo3->vivo = false;
+			barraVida->Maximum = 5;
+			barraVida->Value = oJugador->vida;
+			this->barraConfianza->Visible = false;
 
 			barraVida->Maximum = 5;
 			barraVida->Value = oJugador->vida;
+
 			
 		}
 
@@ -347,6 +355,8 @@ namespace Trabajofinalprueba {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->barraVida = (gcnew System::Windows::Forms::ProgressBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->barraConfianza = (gcnew System::Windows::Forms::ProgressBar());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -356,11 +366,11 @@ namespace Trabajofinalprueba {
 			// 
 			// barraVida
 			// 
-			this->barraVida->Location = System::Drawing::Point(12, 36);
-			this->barraVida->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->barraVida->Location = System::Drawing::Point(9, 29);
+			this->barraVida->Margin = System::Windows::Forms::Padding(2);
 			this->barraVida->Maximum = 5;
 			this->barraVida->Name = L"barraVida";
-			this->barraVida->Size = System::Drawing::Size(161, 31);
+			this->barraVida->Size = System::Drawing::Size(121, 25);
 			this->barraVida->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->barraVida->TabIndex = 0;
 			this->barraVida->Value = 5;
@@ -372,21 +382,53 @@ namespace Trabajofinalprueba {
 			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(9, 9);
+			this->label1->Location = System::Drawing::Point(7, 7);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(42, 16);
+			this->label1->Size = System::Drawing::Size(36, 13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"VIDA";
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(148, 9);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(77, 13);
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"CONFIANZA";
+			this->label2->Click += gcnew System::EventHandler(this, &JuegoForm::label2_Click);
+			// 
+			// barraConfianza
+			// 
+			this->barraConfianza->BackColor = System::Drawing::Color::CadetBlue;
+			this->barraConfianza->ForeColor = System::Drawing::Color::GreenYellow;
+			this->barraConfianza->Location = System::Drawing::Point(151, 29);
+			this->barraConfianza->Margin = System::Windows::Forms::Padding(2);
+			this->barraConfianza->Maximum = 5;
+			this->barraConfianza->Name = L"barraConfianza";
+			this->barraConfianza->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->barraConfianza->Size = System::Drawing::Size(121, 25);
+			this->barraConfianza->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
+			this->barraConfianza->TabIndex = 3;
+			this->barraConfianza->Value = 5;
+			this->barraConfianza->Click += gcnew System::EventHandler(this, &JuegoForm::progressBar1_Click);
+			// 
 			// JuegoForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1147, 591);
+			this->ClientSize = System::Drawing::Size(860, 480);
+			this->Controls->Add(this->barraConfianza);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->barraVida);
 			this->ForeColor = System::Drawing::Color::Transparent;
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"JuegoForm";
 			this->Text = L"JuegoForm";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &JuegoForm::FormCerrar);
@@ -454,6 +496,8 @@ namespace Trabajofinalprueba {
 		{
 			oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar);
 		}
+		
+		
 
 		Rectangle hitJugador = Rectangle(oJugador->getX(), oJugador->getY(), oJugador->getAncho(), oJugador->getAlto());
 
@@ -483,12 +527,11 @@ namespace Trabajofinalprueba {
 			{
 				mostrarConsejoNivel(2);
 
-				if (!poderVelocidadActivo) {
+				// CORRECCIÓN: Agregado "&& !itemVelocidadEnSuelo" para que solo aparezca una vez y no se mueva
+				if (!poderVelocidadActivo && !itemVelocidadEnSuelo) {
 					itemVelocidadEnSuelo = true;
 
-					// --- CAMBIO: Logica Random ---
 					Random^ r = gcnew Random();
-					// Genera posicion X entre 50 y el ancho pantalla - 100
 					int azarX = r->Next(50, this->ClientSize.Width - 100);
 					int azarY = r->Next(50, this->ClientSize.Height - 100);
 
@@ -502,10 +545,10 @@ namespace Trabajofinalprueba {
 			{
 				mostrarConsejoNivel(3);
 
-				if (!poderLentitudActivo) {
+				// CORRECCIÓN: Agregado "&& !itemLentitudEnSuelo"
+				if (!poderLentitudActivo && !itemLentitudEnSuelo) {
 					itemLentitudEnSuelo = true;
 
-					// --- CAMBIO: Logica Random ---
 					Random^ r = gcnew Random();
 					int azarX = r->Next(50, this->ClientSize.Width - 100);
 					int azarY = r->Next(50, this->ClientSize.Height - 100);
@@ -672,6 +715,7 @@ namespace Trabajofinalprueba {
 				oJugador->invulnerable = false;
 		}
 
+
 		
 		// ================= LOGICA POWER UP VELOCIDAD (NIVEL 2) =================
 		if (nivelActual == 2 && itemVelocidadEnSuelo)
@@ -787,7 +831,25 @@ namespace Trabajofinalprueba {
 				curaY = oJugador->getY();
 				tiempoCura = 15;
 			}
+			
 		}
+		buffer->Graphics->FillRectangle(Brushes::Gray, 151, 29, 121, 25);
+
+		// 2. Calcular relleno Azul
+		if (barraConfianza->Maximum > 0)
+		{
+			float porcentaje = (float)barraConfianza->Value / barraConfianza->Maximum;
+			int anchoRelleno = (int)(porcentaje * 121); // 121 es el ancho total
+
+			// Asegurar que si tenemos valor, se pinte algo
+			if (anchoRelleno < 0) anchoRelleno = 0;
+
+			// 3. Dibujar el relleno AZUL
+			buffer->Graphics->FillRectangle(Brushes::Blue, 151, 29, anchoRelleno, 25);
+		}
+
+		// 4. Dibujar un borde Blanco para que resalte
+		buffer->Graphics->DrawRectangle(Pens::White, 151, 29, 121, 25);
 
 		buffer->Render(g);
 		
@@ -828,5 +890,10 @@ namespace Trabajofinalprueba {
 	}
 private: System::Void barraVida_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void progressBar1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
 };
 }
