@@ -62,9 +62,8 @@ Personajes
 
 +NPC(Ciudadano): 
 
-![ciudadano1](https://github.com/user-attachments/assets/638f8dd4-b992-4396-8132-7ec5e67209bb)
+![ciudadano1](https://github.com/user-attachments/assets/638f8dd4-b992-4396-8132-7ec5e67209bb)   ![ciudadano2](https://github.com/user-attachments/assets/9b7b84bc-0464-472b-b45f-dda71d033463)
 
-![ciudadano2](https://github.com/user-attachments/assets/9b7b84bc-0464-472b-b45f-dda71d033463)
 
 + Background:
 <img width="1600" height="600" alt="PC _ Computer - Undertale - Miscellaneous - Asriel Dreemurr Battle Background" src="https://github.com/user-attachments/assets/7c1d3366-21a0-4576-b22a-7249a0e5ad9a" />
@@ -94,9 +93,7 @@ Personajes
 
 +NPC (Desnudo) : 
 
-![calato1](https://github.com/user-attachments/assets/3081b539-a128-47b1-b1d4-d0e04782cf78)
-
-![calato2](https://github.com/user-attachments/assets/98782dbd-9fda-40aa-8c9f-d7d055a83116)
+![calato1](https://github.com/user-attachments/assets/3081b539-a128-47b1-b1d4-d0e04782cf78)   ![calato2](https://github.com/user-attachments/assets/98782dbd-9fda-40aa-8c9f-d7d055a83116)
 
 + Background:
 <img width="3200" height="1800" alt="Preview" src="https://github.com/user-attachments/assets/e0d7346e-33c0-499d-9e86-5fc9a58ce79b" />
@@ -124,9 +121,8 @@ Personajes
 
 +NPC(Ciudadano del campo): 
 
-![campo1](https://github.com/user-attachments/assets/97d84e9d-0fe1-40ae-a4c0-473fece6c48a)
+![campo1](https://github.com/user-attachments/assets/97d84e9d-0fe1-40ae-a4c0-473fece6c48a)   ![campo2](https://github.com/user-attachments/assets/7d14b76b-1464-45d2-8569-c5cf9e9e383f)
 
-![campo2](https://github.com/user-attachments/assets/7d14b76b-1464-45d2-8569-c5cf9e9e383f)
 
 +Background: 
 <img width="1026" height="768" alt="environment_forestbackground" src="https://github.com/user-attachments/assets/a5ce3980-74a1-4c62-bd28-31f816b46f74" />
