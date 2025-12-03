@@ -60,6 +60,7 @@ namespace Trabajofinalprueba {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -68,31 +69,40 @@ namespace Trabajofinalprueba {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(366, 272);
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->Location = System::Drawing::Point(153, 237);
+			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(132, 56);
+			this->button2->Size = System::Drawing::Size(388, 96);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Creditos";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(366, 210);
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->Location = System::Drawing::Point(231, 154);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(132, 56);
+			this->button1->Size = System::Drawing::Size(235, 88);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L"Jugar";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(366, 334);
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
+			this->button3->Location = System::Drawing::Point(202, 323);
+			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(132, 56);
+			this->button3->Size = System::Drawing::Size(281, 93);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"Salir";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -101,21 +111,24 @@ namespace Trabajofinalprueba {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(368, 64);
+			this->label1->Location = System::Drawing::Point(297, 67);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(130, 54);
+			this->label1->Size = System::Drawing::Size(106, 44);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Unity";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(870, 469);
+			this->ClientSize = System::Drawing::Size(686, 418);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -137,6 +150,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	Application::Exit();
+}
+
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
