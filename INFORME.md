@@ -207,9 +207,10 @@ Personaje
 
 Recursos
 -
-![lentitud](https://github.com/user-attachments/assets/c4c15964-27c0-4666-ade5-9b44d21699ba)   ![libroHD](https://github.com/user-attachments/assets/cbd3ef16-f7dc-4add-b3c5-5498fe788425)
-
-<img width="24" height="21" alt="corazon2" src="https://github.com/user-attachments/assets/c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" />   ![rapidez](https://github.com/user-attachments/assets/f5986115-8489-4f76-a518-eeaf88df4d65)
+Le da un efecto de lentidud a los enemigos(5s) -> ![lentitud](https://github.com/user-attachments/assets/c4c15964-27c0-4666-ade5-9b44d21699ba)   
+Te da una brave descripcion de los power ups -> ![libroHD](https://github.com/user-attachments/assets/cbd3ef16-f7dc-4add-b3c5-5498fe788425)
+Le da vida verde al jugador -> <img width="24" height="21" alt="corazon2" src="https://github.com/user-attachments/assets/c1c83a18-bcfb-49cc-bb57-c1cb5c98883d" />   
+Te da un efecto de rapidez(5s) -> ![rapidez](https://github.com/user-attachments/assets/f5986115-8489-4f76-a518-eeaf88df4d65)
 
 
 
