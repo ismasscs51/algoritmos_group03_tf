@@ -51,7 +51,7 @@ namespace Trabajofinalprueba {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -68,10 +68,9 @@ namespace Trabajofinalprueba {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(274, 221);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Location = System::Drawing::Point(366, 272);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(99, 46);
+			this->button2->Size = System::Drawing::Size(132, 56);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Creditos";
 			this->button2->UseVisualStyleBackColor = true;
@@ -79,10 +78,9 @@ namespace Trabajofinalprueba {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(274, 171);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Location = System::Drawing::Point(366, 210);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(99, 46);
+			this->button1->Size = System::Drawing::Size(132, 56);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Jugar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -90,10 +88,9 @@ namespace Trabajofinalprueba {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(274, 271);
-			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button3->Location = System::Drawing::Point(366, 334);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(99, 46);
+			this->button3->Size = System::Drawing::Size(132, 56);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Salir";
 			this->button3->UseVisualStyleBackColor = true;
@@ -104,23 +101,21 @@ namespace Trabajofinalprueba {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(276, 52);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(368, 64);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(106, 44);
+			this->label1->Size = System::Drawing::Size(130, 54);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Unity";
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(652, 381);
+			this->ClientSize = System::Drawing::Size(870, 469);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -135,15 +130,13 @@ namespace Trabajofinalprueba {
 		f2->Show();
 
 	}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-}
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Application::Exit();
-}
-
-
-};
+		Application::Exit();
+	}
+	};
 }

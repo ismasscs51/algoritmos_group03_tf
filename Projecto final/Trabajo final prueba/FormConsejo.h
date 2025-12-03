@@ -78,17 +78,16 @@ namespace Trabajofinalprueba {
 			// 
 			// btnContinuar
 			// 
-<<<<<<< HEAD
 			this->btnContinuar->Location = System::Drawing::Point(68, 153);
 			this->btnContinuar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnContinuar->Name = L"btnContinuar";
 			this->btnContinuar->Size = System::Drawing::Size(67, 42);
-=======
+
 			this->btnContinuar->Location = System::Drawing::Point(76, 166);
 			this->btnContinuar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnContinuar->Name = L"btnContinuar";
 			this->btnContinuar->Size = System::Drawing::Size(56, 30);
->>>>>>> 8084c64fe8774d346193adec5c273563a3a25de9
+
 			this->btnContinuar->TabIndex = 1;
 			this->btnContinuar->Text = L"Continuar";
 			this->btnContinuar->UseVisualStyleBackColor = true;
