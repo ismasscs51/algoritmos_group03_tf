@@ -146,51 +146,108 @@ Propuesta del mensaje final crítico
 
 # 3. Diagrama De Clases UML
 ```mermaid
-classDiagram
-
-class Jugador {
-- x
-- y
-- indiceX, indiceY
-- ancho, alto
-- velocidad
-- direcciones ultimaTecla
-- dx
-- dy
-+ Jugador(int x, int y)
-+ getX()
-+ getY()
-+ getCentroX()
-+ getCentroY()
-+ mover(BufferedGraphics buffer, Bitmap bmp)
-+ dibujar(BufferedGraphics buffer, Bitmap bmp)
+class NPC {
+    - int x
+    - int y
+    - int ancho
+    - int alto
+    + bool activo
+    + int tipo
+    + NPC(px, py, w, h)
+    + dibujar(Graphics g, Bitmap sprite)
+    + getHitbox() Rectangle
+    + getX() int
+    + getY() int
+    + getAncho() int
+    + getAlto() int
 }
 
-class Enemigo {
-+ Recurso(int x, int y, int ancho, int alto)
-+ dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
+class Jugador {
+    - int x
+    - int y
+    - int dx
+    - int dy
+    - int ancho
+    - int alto
+    + int vida
+    + Jugador(x, y)
+    + mover()
+    + dibujar(Graphics g)
+    + atacar()
+    + setVelocidad(v)
 }
 
 class Recurso {
-+ Recurso(int x, int y, int ancho, int alto)
-+ dibujarRecurso(BufferedGraphics buffer, Bitmap bmp)
+    - int x
+    - int y
+    - int ancho
+    - int alto
+    + bool activo
+    + Recurso(x, y, w, h)
+    + dibujar(Graphics g)
+    + getHitbox() Rectangle
+}
+
+class Enemigo {
+    - int x
+    - int y
+    - int dx
+    - int dy
+    - int vida
+    - int tipo
+    + bool vivo
+    + Enemigo(x, y, w, h, tipo)
+    + mover(Jugador j)
+    + dibujar(Graphics g)
+    + resetVida()
+    + getHitbox()
+}
+
+class Aliado {
+    - int x
+    - int y
+    - int ancho
+    - int alto
+    + bool activo
+    + Aliado(x, y, w, h)
+    + setPos(x, y)
+    + activar()
+    + desactivar()
+    + dibujar(Graphics g)
 }
 
 class JuegoForm {
-- Jugador* jugador
-- Enemigo* enemigo
-- List~Recurso*~ recursos
-- Timer timer
-+ paint()
-+ actualizar()
-+ keyDown()
+    - nivelActual
+    - enemigosRestantes
+    - mostrarAvisoNivel
+    - mostrarDaño
+    - mostrarCura
+    - consejoMostrado
+    - mostrarFraseNPC
+    - npcActual : NPC
+    - oJugador : Jugador
+    - aliados : Aliado
+    - enemigos : Enemigo
+    - recursos : Recurso
+    + JuegoForm()
+    + mostrarMensajeNivel(texto)
+    + mostrarConsejoNivel(nivel)
+    + verificarCondicionGanar()
+    + pasarNivel()
 }
 
-Jugador <|-- Enemigo
-Jugador <|-- Recurso
+JuegoForm --> NPC
 JuegoForm --> Jugador
+JuegoForm --> Aliado
 JuegoForm --> Enemigo
 JuegoForm --> Recurso
+
+Jugador --> Recurso : recoge
+Jugador --> Enemigo : combate
+Jugador --> Aliado : coopera
+
+Enemigo --> Jugador : ataca
+NPC --> Jugador : dialoga
 
 ```
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
