@@ -79,9 +79,10 @@ namespace Trabajofinalprueba {
 			// 
 			// btnVolver
 			// 
-			this->btnVolver->Location = System::Drawing::Point(12, 421);
+			this->btnVolver->Location = System::Drawing::Point(9, 342);
+			this->btnVolver->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnVolver->Name = L"btnVolver";
-			this->btnVolver->Size = System::Drawing::Size(86, 36);
+			this->btnVolver->Size = System::Drawing::Size(64, 29);
 			this->btnVolver->TabIndex = 0;
 			this->btnVolver->Text = L"<-- Volver";
 			this->btnVolver->UseVisualStyleBackColor = true;
@@ -92,9 +93,10 @@ namespace Trabajofinalprueba {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(150, 298);
+			this->label1->Location = System::Drawing::Point(112, 242);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(124, 111);
+			this->label1->Size = System::Drawing::Size(93, 90);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Sebastian Pavel Calderon Mendoza\r\n                    -U202412227\r\n";
 			// 
@@ -103,20 +105,23 @@ namespace Trabajofinalprueba {
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(366, 298);
+			this->label2->Location = System::Drawing::Point(274, 242);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(121, 111);
+			this->label2->Size = System::Drawing::Size(91, 90);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"Ismael Mathias Cortez Segovia\r\n            \r\n-U\r\n";
+			this->label2->Text = L"Ismael Mathias Cortez Segovia\r\n            \r\n-U202412638\r\n";
+			this->label2->Click += gcnew System::EventHandler(this, &CreditosForm::label2_Click);
 			// 
 			// label3
 			// 
 			this->label3->BackColor = System::Drawing::Color::Transparent;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(598, 298);
+			this->label3->Location = System::Drawing::Point(448, 242);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(108, 111);
+			this->label3->Size = System::Drawing::Size(81, 90);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Jorge Mathias Belon Carita\r\n\r\n-U\r\n";
 			// 
@@ -125,9 +130,10 @@ namespace Trabajofinalprueba {
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox1->Location = System::Drawing::Point(359, 108);
+			this->pictureBox1->Location = System::Drawing::Point(269, 88);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(137, 178);
+			this->pictureBox1->Size = System::Drawing::Size(103, 145);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 4;
 			this->pictureBox1->TabStop = false;
@@ -137,9 +143,10 @@ namespace Trabajofinalprueba {
 			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox2->Location = System::Drawing::Point(592, 108);
+			this->pictureBox2->Location = System::Drawing::Point(444, 88);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(124, 178);
+			this->pictureBox2->Size = System::Drawing::Size(93, 145);
 			this->pictureBox2->TabIndex = 5;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -148,9 +155,10 @@ namespace Trabajofinalprueba {
 			this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
 			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox3->Location = System::Drawing::Point(146, 108);
+			this->pictureBox3->Location = System::Drawing::Point(110, 88);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(134, 178);
+			this->pictureBox3->Size = System::Drawing::Size(100, 145);
 			this->pictureBox3->TabIndex = 6;
 			this->pictureBox3->TabStop = false;
 			// 
@@ -159,19 +167,20 @@ namespace Trabajofinalprueba {
 			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(293, 30);
+			this->label4->Location = System::Drawing::Point(220, 24);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(273, 34);
+			this->label4->Size = System::Drawing::Size(205, 28);
 			this->label4->TabIndex = 7;
 			this->label4->Text = L"MIEMBROS DEL GRUPO";
 			// 
 			// CreditosForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(870, 471);
+			this->ClientSize = System::Drawing::Size(652, 383);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
@@ -180,6 +189,7 @@ namespace Trabajofinalprueba {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnVolver);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"CreditosForm";
 			this->Text = L"CreditosForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -197,5 +207,7 @@ namespace Trabajofinalprueba {
 		this->Close();
 
 	}
-	};
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
