@@ -6,6 +6,7 @@
 #include "FormConsejo.h"
 #include "NPC.h"
 #include "FormPregunta.h"
+#include "FormFinJuego.h"
 
 namespace Trabajofinalprueba {
 
@@ -254,7 +255,11 @@ namespace Trabajofinalprueba {
 
 				if (oJugador->vida <= 0)
 				{
-					mostrarMensajeNivel("DERROTA");
+					timer1->Enabled = false;
+					FormFinJuego^ f = gcnew FormFinJuego();
+					f->MostrarResultado(false);
+					f->ShowDialog();
+					this->Close();
 					return;
 				}
 			}
@@ -293,7 +298,12 @@ namespace Trabajofinalprueba {
 				oSombra1->vivo = false; oSombra2->vivo = false; oSombra3->vivo = false;
 			}
 			else {
-				mostrarMensajeNivel("¡VICTORIA!");
+				timer1->Enabled = false;
+				FormFinJuego^ f = gcnew FormFinJuego();
+				f->MostrarResultado(true);
+				f->ShowDialog();
+				this->Close();
+				return;
 			}
 		}
 
@@ -558,11 +568,31 @@ namespace Trabajofinalprueba {
 					}
 				}
 			}
-			if (oJugador->vivo && !oJugador->invulnerable && hitJugador.IntersectsWith(Rectangle(e->getX(), e->getY(), e->getAncho(), e->getAlto()))) {
-				oJugador->vida--; barraVida->Value = oJugador->vida;
-				if (oJugador->vida <= 0) { oJugador->vivo = false; mostrarMensajeNivel("DERROTA"); }
-				oJugador->invulnerable = true; oJugador->tiempoInvulnerable = 30;
-				mostrarDaño = true; dañoX = oJugador->getX(); dañoY = oJugador->getY(); tiempoDaño = 15;
+			if (oJugador->vivo && !oJugador->invulnerable &&
+				hitJugador.IntersectsWith(Rectangle(e->getX(), e->getY(), e->getAncho(), e->getAlto()))) {
+
+				oJugador->vida--;
+				barraVida->Value = oJugador->vida;
+
+				if (oJugador->vida <= 0) {
+					oJugador->vivo = false;
+
+					// NUEVO GAME OVER POR FORMULARIO
+					timer1->Enabled = false;
+					FormFinJuego^ f = gcnew FormFinJuego();
+					f->MostrarResultado(false);  // false = perdió
+					f->ShowDialog();
+					this->Close();               // cerramos el juego
+					return;
+				}
+
+				oJugador->invulnerable = true;
+				oJugador->tiempoInvulnerable = 30;
+
+				mostrarDaño = true;
+				dañoX = oJugador->getX();
+				dañoY = oJugador->getY();
+				tiempoDaño = 15;
 			}
 		}
 		if (oJugador->invulnerable) { oJugador->tiempoInvulnerable--; if (oJugador->tiempoInvulnerable <= 0) oJugador->invulnerable = false; }
