@@ -5,6 +5,7 @@
 #include "Aliado.h"
 #include "FormConsejo.h"
 #include "NPC.h"
+#include "FormPregunta.h"
 
 namespace Trabajofinalprueba {
 
@@ -40,7 +41,10 @@ namespace Trabajofinalprueba {
 		NPC* npcActual;
 		int contadorSpawnNPC;
 		int tiempoParaProximoNPC;
-
+		//--- Variables fondo ---
+		Bitmap^ fondo1;
+		Bitmap^ fondo2;
+		Bitmap^ fondo3;
 		// --- Items y Personajes ---
 		bool botiquinActivo = false; Recurso* botiquin; Bitmap^ bmpBotiquin;
 
@@ -123,6 +127,12 @@ namespace Trabajofinalprueba {
 			oRata3 = new Enemigo(150, 250, 64, 64, 2);
 			bmpRata = gcnew Bitmap("img/Rata.png");
 
+			fondo1 = gcnew Bitmap("img/nivel1.png");
+			fondo2 = gcnew Bitmap("img/nivel2.png");
+			fondo3 = gcnew Bitmap("img/nivel3.png");
+
+			this->BackgroundImage = fondo1;
+
 			nivelActual = 1;
 			enemigosRestantes = 2;
 			mostrarMensajeNivel("Nivel 1");
@@ -192,9 +202,79 @@ namespace Trabajofinalprueba {
 			}
 		}
 
+
+
 		void pasarNivel()
 		{
+			FormPregunta^ fp = gcnew FormPregunta();
+
+			if (nivelActual == 1)
+			{
+				fp->cargarPregunta(
+					"¿La eficiencia sin emociones puede llamarse vida?",
+					"Sí, porque lo importante es ser funcional.",
+					"Depende del propósito de la existencia.",
+					"No, porque sentir es lo que da sentido a vivir.",
+					2
+				);
+			}
+
+			else if (nivelActual == 2)
+			{
+				fp->cargarPregunta(
+					"¿Obedecer sin cuestionar es voluntad o programación?",
+					"Es programación, no hay decisión propia.",
+					"Es una señal de disciplina.",
+					"Es una forma de survival.",
+					0
+				);
+			}
+
+			else if (nivelActual == 3)
+			{
+				fp->cargarPregunta(
+					"¿Puede un ser perfecto aprender del error?",
+					"Sí, si entiende que fallar también es información.",
+					"No, la perfección no cambia.",
+					"Solo cuando el sistema lo ordena.",
+					0
+				);
+			}
+
+			// Mostrar formulario
+			timer1->Enabled = false;
+			fp->ShowDialog();
+			timer1->Enabled = true;
+
+			// Evaluar resultado
+			if (!fp->respuestaCorrecta)
+			{
+				oJugador->vida--;
+				barraVida->Value = oJugador->vida;
+
+				if (oJugador->vida <= 0)
+				{
+					mostrarMensajeNivel("DERROTA");
+					return;
+				}
+			}
+
 			nivelActual++;
+			if (nivelActual == 1)
+			{
+				this->BackgroundImage = fondo1;
+				this->BackgroundImageLayout = ImageLayout::Stretch;
+			}
+			else if (nivelActual == 2)
+			{
+				this->BackgroundImage = fondo2;
+				this->BackgroundImageLayout = ImageLayout::Stretch;
+			}
+			else if (nivelActual == 3)
+			{
+				this->BackgroundImage = fondo3;
+				this->BackgroundImageLayout = ImageLayout::Stretch;
+			}
 			poderVelocidadActivo = false; oJugador->setVelocidad(10);
 			poderLentitudActivo = false;
 			barraConfianza->Value = 0;
@@ -243,50 +323,69 @@ namespace Trabajofinalprueba {
 			   this->label2 = (gcnew System::Windows::Forms::Label());
 			   this->barraConfianza = (gcnew System::Windows::Forms::ProgressBar());
 			   this->SuspendLayout();
+			   // 
 			   // timer1
+			   // 
 			   this->timer1->Enabled = true;
 			   this->timer1->Tick += gcnew System::EventHandler(this, &JuegoForm::timer1_Tick);
+			   // 
 			   // barraVida
-			   this->barraVida->Location = System::Drawing::Point(9, 29);
+			   // 
+			   this->barraVida->Location = System::Drawing::Point(12, 36);
+			   this->barraVida->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->barraVida->Maximum = 5;
 			   this->barraVida->Name = L"barraVida";
-			   this->barraVida->Size = System::Drawing::Size(121, 25);
+			   this->barraVida->Size = System::Drawing::Size(161, 31);
 			   this->barraVida->TabIndex = 0;
 			   this->barraVida->Value = 5;
+			   // 
 			   // label1
+			   // 
 			   this->label1->AutoSize = true;
 			   this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->label1->Location = System::Drawing::Point(7, 7);
+			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label1->Location = System::Drawing::Point(9, 9);
+			   this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(42, 16);
 			   this->label1->TabIndex = 1;
 			   this->label1->Text = L"VIDA";
+			   // 
 			   // label2
+			   // 
 			   this->label2->AutoSize = true;
 			   this->label2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->label2->Location = System::Drawing::Point(148, 9);
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label2->Location = System::Drawing::Point(197, 11);
+			   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(93, 16);
+			   this->label2->Size = System::Drawing::Size(92, 16);
 			   this->label2->TabIndex = 2;
 			   this->label2->Text = L"CONFIANZA";
+			   // 
 			   // barraConfianza
-			   this->barraConfianza->Location = System::Drawing::Point(151, 29);
+			   // 
+			   this->barraConfianza->Location = System::Drawing::Point(201, 36);
+			   this->barraConfianza->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->barraConfianza->Maximum = 4;
 			   this->barraConfianza->Name = L"barraConfianza";
-			   this->barraConfianza->Size = System::Drawing::Size(121, 25);
+			   this->barraConfianza->Size = System::Drawing::Size(161, 31);
 			   this->barraConfianza->TabIndex = 3;
-			   this->barraConfianza->Value = 0;
+			   // 
 			   // JuegoForm
-			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			   // 
+			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(1147, 591);
+			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			   this->ClientSize = System::Drawing::Size(1529, 727);
 			   this->Controls->Add(this->barraConfianza);
 			   this->Controls->Add(this->label2);
 			   this->Controls->Add(this->label1);
 			   this->Controls->Add(this->barraVida);
 			   this->ForeColor = System::Drawing::Color::Transparent;
+			   this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->Name = L"JuegoForm";
 			   this->Text = L"La Rebelión Humana";
 			   this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &JuegoForm::FormCerrar);
@@ -294,6 +393,7 @@ namespace Trabajofinalprueba {
 			   this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &JuegoForm::soltarTecla);
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
+
 		   }
 #pragma endregion
 
@@ -302,8 +402,19 @@ namespace Trabajofinalprueba {
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
-		if (this->BackgroundImage != nullptr) buffer->Graphics->DrawImage(this->BackgroundImage, 0, 0, this->ClientSize.Width, this->ClientSize.Height);
-		else buffer->Graphics->Clear(Color::Black);
+		Bitmap^ fondoActual = nullptr;
+
+		if (nivelActual == 1) fondoActual = fondo1;
+		else if (nivelActual == 2) fondoActual = fondo2;
+		else if (nivelActual == 3) fondoActual = fondo3;
+
+		buffer->Graphics->DrawImage(
+			fondoActual,
+			0, 0,
+			this->ClientSize.Width,
+			this->ClientSize.Height
+		);
+		
 
 		if (oJugador->vivo) { oJugador->mover(buffer, bmpJugador, bmpJugadorAtacar); }
 		Rectangle hitJugador = Rectangle(oJugador->getX(), oJugador->getY(), oJugador->getAncho(), oJugador->getAlto());
@@ -433,6 +544,16 @@ namespace Trabajofinalprueba {
 						if (e->vida <= 0) {
 							e->vivo = false; enemigosRestantes--;
 							verificarCondicionGanar();
+
+							Random^ rBot = gcnew Random();
+							int prob = rBot->Next(0, 100); // 0 a 99
+
+							if (prob < 50 && !botiquinActivo)  // 50% y solo si no hay uno activo
+							{
+								botiquinActivo = true;
+								botiquin->setX(e->getX());
+								botiquin->setY(e->getY());
+							}
 						}
 					}
 				}

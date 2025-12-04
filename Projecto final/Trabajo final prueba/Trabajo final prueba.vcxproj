@@ -124,6 +124,7 @@
     <ClCompile Include="CreditosForm.cpp" />
     <ClCompile Include="Enemigo.cpp" />
     <ClCompile Include="FormConsejo.cpp" />
+    <ClCompile Include="FormPregunta.cpp" />
     <ClCompile Include="JuegoForm.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -137,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="Enemigo.h" />
     <ClInclude Include="FormConsejo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FormPregunta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="JuegoForm.h">
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormConsejo.resx">
       <DependentUpon>FormConsejo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPregunta.resx">
+      <DependentUpon>FormPregunta.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JuegoForm.resx">
       <DependentUpon>JuegoForm.h</DependentUpon>
