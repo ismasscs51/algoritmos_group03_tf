@@ -228,22 +228,23 @@ class Aliado {
 }
 
 class JuegoForm {
-- nivelActual
-- enemigosRestantes
-- mostrarAvisoNivel
-- mostrarDaño
-- mostrarCura
-- consejoMostrado
-- mostrarFraseNPC
-+ npcActual : NPC
-+ oJugador : Jugador
-+ aliados : Aliado[]
-+ enemigos : Enemigo[]
-+ recursos : Recurso[]
-+ mostrarMensajeNivel()
-+ mostrarConsejoNivel()
-+ verificarCondicionGanar()
-+ pasarNivel()
+- int nivelActual
+- int enemigosRestantes
+- int mostrarAvisoNivel
+- int mostrarDaño
+- int mostrarCura
+- int consejoMostrado
+- int mostrarFraseNPC
+
++npcActual : NPC()
++oJugador : Jugador()
++aliados : Aliado()
++enemigos : Enemigo()
++recursos : Recurso()
++mostrarMensajeNivel()
++mostrarConsejoNivel()
++verificarCondicionGanar()
++pasarNivel()
 }
 
 JuegoForm *-- Jugador : 
@@ -252,13 +253,13 @@ JuegoForm o-- Enemigo :
 JuegoForm o-- Recurso : 
 JuegoForm --> NPC 
 
-Jugador --> Recurso : 0..1*
+Jugador --> Recurso : 1..1*
 Jugador --> Enemigo : 1..3*
 Jugador --> Aliado : 1..1*
 
-Enemigo --> Jugador : 0..1*
+Enemigo --> Jugador : 1..1*
 
-NPC --> Jugador : 0..1*
+NPC --> Jugador : 1..1*
 ```
 
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
