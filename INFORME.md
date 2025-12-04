@@ -148,100 +148,117 @@ Propuesta del mensaje final crítico
 ```mermaid
 classDiagram
 class NPC {
-    int x
-    int y
-    int ancho
-    int alto
-    bool activo
-    int tipo
-    NPC(px, py, w, h)
-    dibujar(g, sprite)
-    getHitbox()
-    getX()
-    getY()
-    getAncho()
-    getAlto()
+- int x
+- int y
+- int ancho
+- int alto
+- bool activo
+- int tipo
++ NPC(px, py, w, h)
++ dibujar(g, sprite)
++ getHitbox()
++ getX()
++ getY()
++ getAncho()
++ getAlto()
 }
 
 class Jugador {
-    int x
-    int y
-    int dx
-    int dy
-    int ancho
-    int alto
-    int vida
-    mover()
-    dibujar(g)
-    atacar()
-    setVelocidad(v)
+- int x
+- int y
+- int dx
+- int dy
+- int ancho
+- int alto
+- int indiceX
+- int indiceY
+- int velocidad
+- int vida
+- int vivo
+- bool invulnerable
+- int tiempoInvulnerable
+- bool atacando
+- bool yaGolpeoEnEsteAtaque      
+- int indiceAtaque
+- int maxFramesAtaque
++ int getX()
++ int getY()
++ void setX()
++ void setY()
++ void getCentroY()
++ void getCentroX()
++ int getVelocidad()
++ int getAncho()
++ int getAlto()
++ void dibujar()
++ void mover()
+
 }
 
 class Recurso {
-    int x
-    int y
-    int ancho
-    int alto
-    bool activo
-    dibujar(g)
-    getHitbox()
+- int x
+- int y
+- int ancho
+- int alto
+- bool activo
++ Recurso(int x, int y, int ancho, int alto)
++ dibujar()
 }
 
 class Enemigo {
-    int x
-    int y
-    int dx
-    int dy
-    int vida
-    int tipo
-    bool vivo
-    mover(j)
-    dibujar(g)
-    resetVida()
-    getHitbox()
+- int vida
+- int vivo
++ void moverHaciaJugador(Jugador* objetivo)
++ void resetVida()
++ void setVelocidad(int v)
 }
 
 class Aliado {
-    int x
-    int y
-    int ancho
-    int alto
-    bool activo
-    setPos(x, y)
-    activar()
-    desactivar()
-    dibujar(g)
+- int x
+- int y
+- int ancho
+- int alto
+- bool activo
++ Aliado(int px, int py, int w, int h)
++ void activar()
++ void desactivar()
++ bool estaActivo()
++ void setPos(int px, int py)
++ void dibujar(Graphics^ g, Bitmap^ sprite)
 }
 
 class JuegoForm {
-    nivelActual
-    enemigosRestantes
-    mostrarAvisoNivel
-    mostrarDaño
-    mostrarCura
-    consejoMostrado
-    mostrarFraseNPC
-    npcActual : NPC
-    oJugador : Jugador
-    aliados : Aliado[]
-    enemigos : Enemigo[]
-    recursos : Recurso[]
-    mostrarMensajeNivel()
-    mostrarConsejoNivel()
-    verificarCondicionGanar()
-    pasarNivel()
+- nivelActual
+- enemigosRestantes
+- mostrarAvisoNivel
+- mostrarDaño
+- mostrarCura
+- consejoMostrado
+- mostrarFraseNPC
++ npcActual : NPC
++ oJugador : Jugador
++ aliados : Aliado[]
++ enemigos : Enemigo[]
++ recursos : Recurso[]
++ mostrarMensajeNivel()
++ mostrarConsejoNivel()
++ verificarCondicionGanar()
++ pasarNivel()
 }
 
-JuegoForm --> NPC
-JuegoForm --> Jugador
-JuegoForm --> Aliado
-JuegoForm --> Enemigo
-JuegoForm --> Recurso
-Jugador --> Recurso : recoge
-Jugador --> Enemigo : combate
-Jugador --> Aliado : coopera
-Enemigo --> Jugador : ataca
-NPC --> Jugador : dialoga
+JuegoForm *-- Jugador : 
+JuegoForm o-- Aliado : 
+JuegoForm o-- Enemigo : 
+JuegoForm o-- Recurso : 
+JuegoForm --> NPC 
+
+Jugador --> Recurso : 0..1*
+Jugador --> Enemigo : 1..3*
+Jugador --> Aliado : 1..1*
+
+Enemigo --> Jugador : 0..1*
+
+NPC --> Jugador : 0..1*
 ```
 
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
