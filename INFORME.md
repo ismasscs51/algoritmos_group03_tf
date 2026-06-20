@@ -262,6 +262,50 @@ Enemigo --> Jugador : 1..1*
 NPC --> Jugador : 1..1*
 ```
 
+```mermaid
+classDiagram
+
+class Jugador {
+-int x;
+-int y;
+-int dx;
+-int dy;
++borrar()
++moveer()
++dibujar()
++recogerRecurso(Recurso r)
+}
+
+class Enemigo {
+-int x;
+-int y;
+-int dx;
+-int dy;
++borrar()
++moveer()
++dibujar()
++atacar(Jugador j)
+}
+
+class Aliado {
+-int x;
+-int y;
+-int dx;
+-int dy;
++curar(Jugador j)
+}
+
+class Recurso {
+-string tipo;
+-int cantidad;
++usar(Jugador j)
+}
+
+Jugador o-- "1..*" Recurso
+Jugador o-- "1..*" Aliado
+Jugador -- "1..*" Enemigo
+
+```
 # 4. Recursos a Utilizar En El Desarrollo Del Videojuego
 
 Personaje
